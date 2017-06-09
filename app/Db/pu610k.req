@@ -1,0 +1,4 @@
+#
+# List of PVs to autosave.  Assume $(BASE) is the detector base PV and
+# $(IOC) is the IOC base PV.
+#

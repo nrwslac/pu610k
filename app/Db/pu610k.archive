@@ -1,0 +1,10 @@
+#
+# List of PVs to archive with timing in seconds between readings and 
+# optionally "monitor".
+#
+# The difference is without "monitor", you will always record at the 
+# specified rate, but with, you will try to get every change, perhaps
+# more, perhaps less.
+#
+# Assume $(BASE) is the base PV of the detector and $(IOC) is the IOC PV.
+

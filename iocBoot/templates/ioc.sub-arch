@@ -1,0 +1,13 @@
+# gentec IOC instance archive file
+
+# Generate archive PV list for IOC
+file pu610k.archive
+{
+	pattern
+	{ IOC,     BASE  }
+$$LOOP(GENTEC)
+	{$$IOC_PV, $$NAME}
+$$ENDLOOP(GENTEC)
+}
+
+
