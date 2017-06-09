@@ -13,7 +13,7 @@ include $(TOP)/configure/CONFIG
 # However, this is not necessary as long as your st.cmd sets
 # the env var STREAM_PROTOCOL_PATH to $(TOP)/rsngpsApp/srcProtocol
 #COPY_FILES += example.proto
-COPY_FILES += slink.proto
+#COPY_FILES += slink.proto
 
 # What subdirectory should hold the protcol files.  For this example,
 # $INSTALL_LOCATION/protocol will be created.
