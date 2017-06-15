@@ -23,11 +23,11 @@ pu610k_registerRecordDeviceDriver(pdbbase)
 
 # Configure each device
 $$LOOP(PU610K)
-drvAsynIPPortConfigure("PU_$$INDEX","$$IP:$$IF(PORT,$$PORT,10001)",0,0,0)
-
+drvAsynIPPortConfigure("PU_$$INDEX","$$IP:$$PORT",0,0,0)
 $$IF(DEBUG)
 asynSetTraceMask(  "PU_$$INDEX",	0,		9)
 asynSetTraceIOMask("PU_$$INDEX",	0,		2)
+
 $$ENDIF(DEBUG)
 $$ENDLOOP(PU610K)
 
@@ -36,8 +36,8 @@ $$ENDLOOP(PU610K)
 dbLoadRecords("db/iocSoft.db", "IOC=$(IOC_PV)")
 dbLoadRecords("db/save_restoreStatus.db", "IOC=$(IOC_PV)")
 $$LOOP(PU610K)
-dbLoadRecords("db/pu610k.db", "BASE=$$NAME,PORT=PU_$$INDEX")
-dbLoadRecords("db/asynRecord.db", "P=$$NAME,R=:ASYN,PORT=PU_$$INDEX,ADDR=0,OMAX=0,IMAX=0")
+dbLoadRecords("db/pu610k.db", "BASE=$$BASE,PORT=PU_$$INDEX,CHAN=CH$$INDEX,NAME=$$NAME")
+dbLoadRecords("db/asynRecord.db", "P=$$BASE,R=:ASYN,PORT=PU_$$INDEX,ADDR=0,OMAX=0,IMAX=0")
 $$ENDLOOP(PU610K)
 
 # Setup autosave

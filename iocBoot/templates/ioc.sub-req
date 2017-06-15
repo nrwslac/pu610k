@@ -1,11 +1,15 @@
-# gentec IOC instance autosave file
+# pu610k IOC instance autosave file
 
-# Generate autosave PV list for IOC specific PV's
+file autosave_iocAdmin.tpl-req
+{
+	{ IOC = $$IOC_PV }
+}
+
 file pu610k.req
 {
 	pattern
-	{ IOC,     BASE  }
-$$LOOP(GENTEC)
-	{$$IOC_PV, $$NAME}
-$$ENDLOOP(GENTEC)
+	{ IOC,     BASE,    CHAN      }
+$$LOOP(PU610K)
+	{$$IOC_PV, $$BASE,  CH$$INDEX }
+$$ENDLOOP(PU610K)
 }
