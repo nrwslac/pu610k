@@ -14,15 +14,15 @@ ModeGet          { out ":MD"; in ":MD,%d"; }
 
 # These are set the same!!
 ChargeDeferSet   { out ":CD,%d"; in ":CD,%*d"; }   # 1-32767 sec           
-ChargeDeferGet   { out ":CD"; in ":CD,%d,%*d"; }   # sec, remain sec
-ChargeInhibitSet { out ":CI,%d"; in ":CI,%*d; }    # 1-32767 sec: return seconds, remaining seconds.
+ChargeDeferGet   { out ":CD"; in ":CD,%d"; }       # sec
+ChargeInhibitSet { out ":CI,%d"; in ":CI,%*d"; }   # 1-32767 sec: return seconds, remaining seconds.
 ChargeInhibitGet { out ":CI"; in ":CI,%d,%*d"; }   # seconds, remaining seconds  (Read during MD,2)
 CICountdownGet   { in ":CI,%*d,%d"; }
 
 ChargeSet        { out ":CH,1";  in ":CH,%*d"; }   # Or CH,! if the command is rejected.
-ChargeGet        { out ":CH";  in ":CH,EOC%d"; }
+ChargeDone       { out ":CH";  in ":CH,EOC%d"; }
 
-HighVoltageGet   { out ":HV"; in ":HV,%d"; }       # measured volts (during MD,2)
+HighVoltageGet   { out ":HV"; in ":HV,%d"; @mismatch { in ":HV!%*s"; }}       # measured volts (during MD,2)
 
 ErrorGet         { out ":ER"; in ":ER,%2s,%4*x"; } # OK or error number.
 FlashModeSet     { out ":PF,%d"; in ":PF,%*d"; }   # 3=Auto, 7=Manual. Requires reboot after setting

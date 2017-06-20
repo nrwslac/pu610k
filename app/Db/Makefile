@@ -15,7 +15,7 @@ DB_INSTALLS += $(AUTOSAVE)/db/save_restoreStatus.db
 DB_INSTALLS += $(ASYN)/db/asynRecord.db
 
 DB += pu610k.db
-
+DB += pu610k_master.db
 
 #----------------------------------------------------
 # Create and install (or just install)

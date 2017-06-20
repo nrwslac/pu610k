@@ -1,0 +1,3273 @@
+4 0 1
+beginScreenProperties
+major 4
+minor 0
+release 1
+x 2236
+y 358
+w 962
+h 483
+font "helvetica-medium-r-18.0"
+ctlFont "helvetica-medium-r-18.0"
+btnFont "helvetica-medium-r-18.0"
+fgColor index 14
+bgColor index 3
+textColor index 14
+ctlFgColor1 index 14
+ctlFgColor2 index 0
+ctlBgColor1 index 0
+ctlBgColor2 index 14
+topShadowColor index 0
+botShadowColor index 14
+title "$(BASE)"
+showGrid
+snapToGrid
+gridSize 4
+disableScroll
+endScreenProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 24
+y 156
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 15
+fillAlarm
+visPv "$(BASE):CHARGE_OK"
+visMin "1"
+visMax "2"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 24
+y 188
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 15
+fillAlarm
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 76
+y 152
+w 60
+h 18
+fgColor index 14
+onColor index 4
+offColor index 4
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(BASE):START_CHARGE"
+pressValue "1"
+onLabel "Charge"
+offLabel "Charge"
+3d
+useEnumNumeric
+font "helvetica-bold-r-12.0"
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 76
+y 184
+w 60
+h 18
+fgColor index 14
+onColor index 4
+offColor index 4
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(BASE):MODE"
+pressValue "0"
+onLabel "Discharge"
+offLabel "Discharge"
+3d
+useEnumNumeric
+font "helvetica-bold-r-12.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 16
+y 16
+w 104
+h 20
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "System Control"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 16
+y 132
+w 104
+h 20
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "PU610K"
+}
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 76
+y 40
+w 60
+h 20
+fgColor index 14
+onColor index 4
+offColor index 4
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(BASE):MODE"
+pressValue "0"
+onLabel "Stop"
+offLabel "Stop"
+3d
+useEnumNumeric
+font "helvetica-bold-r-12.0"
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 76
+y 64
+w 60
+h 20
+fgColor index 14
+onColor index 4
+offColor index 4
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(BASE):MODE"
+pressValue "1"
+onLabel "Stand By"
+offLabel "Stand By"
+3d
+useEnumNumeric
+font "helvetica-bold-r-12.0"
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 76
+y 92
+w 60
+h 20
+fgColor index 14
+onColor index 4
+offColor index 4
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(BASE):MODE"
+pressValue "2"
+onLabel "Flash"
+offLabel "Flash"
+3d
+useEnumNumeric
+font "helvetica-bold-r-12.0"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 24
+y 44
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 15
+visPv "CALC\\\{(A=0)&&!(B=0)\}($(BASE):MODE_RBV,$(BASE):MODE_OK)"
+visMin "1"
+visMax "2"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 24
+y 68
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 15
+fillAlarm
+visPv "CALC\\\{(A=1)&&!(B=0)\}($(BASE):MODE_RBV,$(BASE):MODE_OK)"
+visMin "1"
+visMax "2"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 24
+y 96
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 15
+fillAlarm
+visPv "CALC\\\{(A=2)&&!(B=0)\}($(BASE):MODE_RBV,$(BASE):MODE_OK)"
+visMin "1"
+visMax "2"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 12
+y 128
+w 132
+h 84
+lineColor index 14
+fillColor index 0
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 12
+y 12
+w 132
+h 108
+lineColor index 14
+fillColor index 0
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 76
+y 224
+w 44
+h 20
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Enable"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 188
+y 224
+w 44
+h 20
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Name"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 348
+y 224
+w 76
+h 20
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Voltage (V)"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 512
+y 224
+w 124
+h 20
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Charge Inhibit (sec)"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 664
+y 224
+w 92
+h 20
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "CI Count (sec)"
+}
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 760
+y 250
+w 180
+h 20
+lineColor index 14
+fill
+fillColor index 15
+visPv "$(BASE):CH0:CHARGE_STATE"
+visMin "2"
+visMax "3"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 760
+y 250
+w 180
+h 20
+lineColor index 14
+fill
+fillColor index 35
+visPv "$(BASE):CH0:CHARGE_STATE"
+visMin "1"
+visMax "2"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 760
+y 250
+w 180
+h 20
+lineColor index 14
+fill
+fillColor index 0
+visPv "$(BASE):CH0:CHARGE_STATE"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 388
+y 250
+w 72
+h 19
+controlPv "$(BASE):CH0:VOLTAGE_MEASURED"
+font "courier-medium-r-12.0"
+fgColor index 15
+fgAlarm
+bgColor index 12
+motifWidget
+limitsFromDb
+nullColor index 18
+newPos
+objType "monitors"
+id "c"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 308
+y 250
+w 72
+h 19
+controlPv "$(BASE):CH0:VOLTAGE"
+font "courier-medium-r-12.0"
+fgColor index 25
+bgColor index 4
+editable
+motifWidget
+limitsFromDb
+nullPv "$(BASE):CH0:ENABLE_RBV"
+nullColor index 0
+nullCondition "nullEq0"
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 72
+y 250
+w 25
+h 18
+fgColor index 14
+onColor index 4
+offColor index 4
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(BASE):CH0:ENABLE"
+pressValue "0"
+onLabel "Off"
+offLabel "Off"
+3d
+useEnumNumeric
+font "helvetica-bold-r-12.0"
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 100
+y 250
+w 25
+h 18
+fgColor index 14
+onColor index 4
+offColor index 4
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(BASE):CH0:ENABLE"
+pressValue "1"
+onLabel "On"
+offLabel "On"
+3d
+useEnumNumeric
+font "helvetica-bold-r-12.0"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 24
+y 254
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 15
+visPv "$(BASE):CH0:ENABLE_RBV"
+visMin "1"
+visMax "2"
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 492
+y 250
+w 72
+h 19
+controlPv "$(BASE):CH0:CHARGE_INHIBIT"
+font "courier-medium-r-12.0"
+fgColor index 25
+bgColor index 4
+editable
+motifWidget
+limitsFromDb
+nullPv "$(BASE):CH0:ENABLE_RBV"
+nullColor index 0
+nullCondition "nullEq0"
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 572
+y 250
+w 72
+h 19
+controlPv "$(BASE):CH0:CHARGE_INHIBIT_RBV"
+font "courier-medium-r-12.0"
+fgColor index 15
+fgAlarm
+bgColor index 12
+motifWidget
+limitsFromDb
+nullColor index 18
+newPos
+objType "monitors"
+id "c"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 672
+y 250
+w 72
+h 19
+controlPv "$(BASE):CH0:CI_COUNTDOWN"
+font "courier-medium-r-12.0"
+fgColor index 15
+fgAlarm
+bgColor index 12
+motifWidget
+limitsFromDb
+nullColor index 18
+newPos
+objType "monitors"
+id "c"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 760
+y 250
+w 180
+h 21
+controlPv "$(BASE):CH0:CHARGE_STATE"
+font "helvetica-medium-r-18.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+autoHeight
+limitsFromDb
+nullColor index 0
+fastUpdate
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 24
+y 254
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 14
+visPv "$(BASE):CH0:ENABLE_RBV"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 132
+y 250
+w 168
+h 21
+controlPv "$(BASE):CH0:NAME"
+font "helvetica-medium-r-18.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+autoHeight
+limitsFromDb
+nullColor index 0
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 760
+y 275
+w 180
+h 20
+lineColor index 14
+fill
+fillColor index 15
+visPv "$(BASE):CH1:CHARGE_STATE"
+visMin "2"
+visMax "3"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 760
+y 275
+w 180
+h 20
+lineColor index 14
+fill
+fillColor index 35
+visPv "$(BASE):CH1:CHARGE_STATE"
+visMin "1"
+visMax "2"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 760
+y 275
+w 180
+h 20
+lineColor index 14
+fill
+fillColor index 0
+visPv "$(BASE):CH1:CHARGE_STATE"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 388
+y 275
+w 72
+h 19
+controlPv "$(BASE):CH1:VOLTAGE_MEASURED"
+font "courier-medium-r-12.0"
+fgColor index 15
+fgAlarm
+bgColor index 12
+motifWidget
+limitsFromDb
+nullColor index 18
+newPos
+objType "monitors"
+id "c"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 308
+y 275
+w 72
+h 19
+controlPv "$(BASE):CH1:VOLTAGE"
+font "courier-medium-r-12.0"
+fgColor index 25
+bgColor index 4
+editable
+motifWidget
+limitsFromDb
+nullPv "$(BASE):CH1:ENABLE_RBV"
+nullColor index 0
+nullCondition "nullEq0"
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 72
+y 275
+w 25
+h 18
+fgColor index 14
+onColor index 4
+offColor index 4
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(BASE):CH1:ENABLE"
+pressValue "0"
+onLabel "Off"
+offLabel "Off"
+3d
+useEnumNumeric
+font "helvetica-bold-r-12.0"
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 100
+y 275
+w 25
+h 18
+fgColor index 14
+onColor index 4
+offColor index 4
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(BASE):CH1:ENABLE"
+pressValue "1"
+onLabel "On"
+offLabel "On"
+3d
+useEnumNumeric
+font "helvetica-bold-r-12.0"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 24
+y 279
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 15
+visPv "$(BASE):CH1:ENABLE_RBV"
+visMin "1"
+visMax "2"
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 492
+y 275
+w 72
+h 19
+controlPv "$(BASE):CH1:CHARGE_INHIBIT"
+font "courier-medium-r-12.0"
+fgColor index 25
+bgColor index 4
+editable
+motifWidget
+limitsFromDb
+nullPv "$(BASE):CH1:ENABLE_RBV"
+nullColor index 0
+nullCondition "nullEq0"
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 572
+y 275
+w 72
+h 19
+controlPv "$(BASE):CH1:CHARGE_INHIBIT_RBV"
+font "courier-medium-r-12.0"
+fgColor index 15
+fgAlarm
+bgColor index 12
+motifWidget
+limitsFromDb
+nullColor index 18
+newPos
+objType "monitors"
+id "c"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 672
+y 275
+w 72
+h 19
+controlPv "$(BASE):CH1:CI_COUNTDOWN"
+font "courier-medium-r-12.0"
+fgColor index 15
+fgAlarm
+bgColor index 12
+motifWidget
+limitsFromDb
+nullColor index 18
+newPos
+objType "monitors"
+id "c"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 760
+y 275
+w 180
+h 21
+controlPv "$(BASE):CH1:CHARGE_STATE"
+font "helvetica-medium-r-18.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+autoHeight
+limitsFromDb
+nullColor index 0
+fastUpdate
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 24
+y 279
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 14
+visPv "$(BASE):CH1:ENABLE_RBV"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 132
+y 275
+w 168
+h 21
+controlPv "$(BASE):CH1:NAME"
+font "helvetica-medium-r-18.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+autoHeight
+limitsFromDb
+nullColor index 0
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 760
+y 300
+w 180
+h 20
+lineColor index 14
+fill
+fillColor index 15
+visPv "$(BASE):CH2:CHARGE_STATE"
+visMin "2"
+visMax "3"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 760
+y 300
+w 180
+h 20
+lineColor index 14
+fill
+fillColor index 35
+visPv "$(BASE):CH2:CHARGE_STATE"
+visMin "1"
+visMax "2"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 760
+y 300
+w 180
+h 20
+lineColor index 14
+fill
+fillColor index 0
+visPv "$(BASE):CH2:CHARGE_STATE"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 388
+y 300
+w 72
+h 19
+controlPv "$(BASE):CH2:VOLTAGE_MEASURED"
+font "courier-medium-r-12.0"
+fgColor index 15
+fgAlarm
+bgColor index 12
+motifWidget
+limitsFromDb
+nullColor index 18
+newPos
+objType "monitors"
+id "c"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 308
+y 300
+w 72
+h 19
+controlPv "$(BASE):CH2:VOLTAGE"
+font "courier-medium-r-12.0"
+fgColor index 25
+bgColor index 4
+editable
+motifWidget
+limitsFromDb
+nullPv "$(BASE):CH2:ENABLE_RBV"
+nullColor index 0
+nullCondition "nullEq0"
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 72
+y 300
+w 25
+h 18
+fgColor index 14
+onColor index 4
+offColor index 4
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(BASE):CH2:ENABLE"
+pressValue "0"
+onLabel "Off"
+offLabel "Off"
+3d
+useEnumNumeric
+font "helvetica-bold-r-12.0"
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 100
+y 300
+w 25
+h 18
+fgColor index 14
+onColor index 4
+offColor index 4
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(BASE):CH2:ENABLE"
+pressValue "1"
+onLabel "On"
+offLabel "On"
+3d
+useEnumNumeric
+font "helvetica-bold-r-12.0"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 24
+y 304
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 15
+visPv "$(BASE):CH2:ENABLE_RBV"
+visMin "1"
+visMax "2"
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 492
+y 300
+w 72
+h 19
+controlPv "$(BASE):CH2:CHARGE_INHIBIT"
+font "courier-medium-r-12.0"
+fgColor index 25
+bgColor index 4
+editable
+motifWidget
+limitsFromDb
+nullPv "$(BASE):CH2:ENABLE_RBV"
+nullColor index 0
+nullCondition "nullEq0"
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 572
+y 300
+w 72
+h 19
+controlPv "$(BASE):CH2:CHARGE_INHIBIT_RBV"
+font "courier-medium-r-12.0"
+fgColor index 15
+fgAlarm
+bgColor index 12
+motifWidget
+limitsFromDb
+nullColor index 18
+newPos
+objType "monitors"
+id "c"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 672
+y 300
+w 72
+h 19
+controlPv "$(BASE):CH2:CI_COUNTDOWN"
+font "courier-medium-r-12.0"
+fgColor index 15
+fgAlarm
+bgColor index 12
+motifWidget
+limitsFromDb
+nullColor index 18
+newPos
+objType "monitors"
+id "c"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 760
+y 300
+w 180
+h 21
+controlPv "$(BASE):CH2:CHARGE_STATE"
+font "helvetica-medium-r-18.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+autoHeight
+limitsFromDb
+nullColor index 0
+fastUpdate
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 24
+y 304
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 14
+visPv "$(BASE):CH2:ENABLE_RBV"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 132
+y 300
+w 168
+h 21
+controlPv "$(BASE):CH2:NAME"
+font "helvetica-medium-r-18.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+autoHeight
+limitsFromDb
+nullColor index 0
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 760
+y 325
+w 180
+h 20
+lineColor index 14
+fill
+fillColor index 15
+visPv "$(BASE):CH3:CHARGE_STATE"
+visMin "2"
+visMax "3"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 760
+y 325
+w 180
+h 20
+lineColor index 14
+fill
+fillColor index 35
+visPv "$(BASE):CH3:CHARGE_STATE"
+visMin "1"
+visMax "2"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 760
+y 325
+w 180
+h 20
+lineColor index 14
+fill
+fillColor index 0
+visPv "$(BASE):CH3:CHARGE_STATE"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 388
+y 325
+w 72
+h 19
+controlPv "$(BASE):CH3:VOLTAGE_MEASURED"
+font "courier-medium-r-12.0"
+fgColor index 15
+fgAlarm
+bgColor index 12
+motifWidget
+limitsFromDb
+nullColor index 18
+newPos
+objType "monitors"
+id "c"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 308
+y 325
+w 72
+h 19
+controlPv "$(BASE):CH3:VOLTAGE"
+font "courier-medium-r-12.0"
+fgColor index 25
+bgColor index 4
+editable
+motifWidget
+limitsFromDb
+nullPv "$(BASE):CH3:ENABLE_RBV"
+nullColor index 0
+nullCondition "nullEq0"
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 72
+y 325
+w 25
+h 18
+fgColor index 14
+onColor index 4
+offColor index 4
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(BASE):CH3:ENABLE"
+pressValue "0"
+onLabel "Off"
+offLabel "Off"
+3d
+useEnumNumeric
+font "helvetica-bold-r-12.0"
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 100
+y 325
+w 25
+h 18
+fgColor index 14
+onColor index 4
+offColor index 4
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(BASE):CH3:ENABLE"
+pressValue "1"
+onLabel "On"
+offLabel "On"
+3d
+useEnumNumeric
+font "helvetica-bold-r-12.0"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 24
+y 329
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 15
+visPv "$(BASE):CH3:ENABLE_RBV"
+visMin "1"
+visMax "2"
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 492
+y 325
+w 72
+h 19
+controlPv "$(BASE):CH3:CHARGE_INHIBIT"
+font "courier-medium-r-12.0"
+fgColor index 25
+bgColor index 4
+editable
+motifWidget
+limitsFromDb
+nullPv "$(BASE):CH3:ENABLE_RBV"
+nullColor index 0
+nullCondition "nullEq0"
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 572
+y 325
+w 72
+h 19
+controlPv "$(BASE):CH3:CHARGE_INHIBIT_RBV"
+font "courier-medium-r-12.0"
+fgColor index 15
+fgAlarm
+bgColor index 12
+motifWidget
+limitsFromDb
+nullColor index 18
+newPos
+objType "monitors"
+id "c"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 672
+y 325
+w 72
+h 19
+controlPv "$(BASE):CH3:CI_COUNTDOWN"
+font "courier-medium-r-12.0"
+fgColor index 15
+fgAlarm
+bgColor index 12
+motifWidget
+limitsFromDb
+nullColor index 18
+newPos
+objType "monitors"
+id "c"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 760
+y 325
+w 180
+h 21
+controlPv "$(BASE):CH3:CHARGE_STATE"
+font "helvetica-medium-r-18.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+autoHeight
+limitsFromDb
+nullColor index 0
+fastUpdate
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 24
+y 329
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 14
+visPv "$(BASE):CH3:ENABLE_RBV"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 132
+y 325
+w 168
+h 21
+controlPv "$(BASE):CH3:NAME"
+font "helvetica-medium-r-18.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+autoHeight
+limitsFromDb
+nullColor index 0
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 760
+y 350
+w 180
+h 20
+lineColor index 14
+fill
+fillColor index 15
+visPv "$(BASE):CH4:CHARGE_STATE"
+visMin "2"
+visMax "3"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 760
+y 350
+w 180
+h 20
+lineColor index 14
+fill
+fillColor index 35
+visPv "$(BASE):CH4:CHARGE_STATE"
+visMin "1"
+visMax "2"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 760
+y 350
+w 180
+h 20
+lineColor index 14
+fill
+fillColor index 0
+visPv "$(BASE):CH4:CHARGE_STATE"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 388
+y 350
+w 72
+h 19
+controlPv "$(BASE):CH4:VOLTAGE_MEASURED"
+font "courier-medium-r-12.0"
+fgColor index 15
+fgAlarm
+bgColor index 12
+motifWidget
+limitsFromDb
+nullColor index 18
+newPos
+objType "monitors"
+id "c"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 308
+y 350
+w 72
+h 19
+controlPv "$(BASE):CH4:VOLTAGE"
+font "courier-medium-r-12.0"
+fgColor index 25
+bgColor index 4
+editable
+motifWidget
+limitsFromDb
+nullPv "$(BASE):CH4:ENABLE_RBV"
+nullColor index 0
+nullCondition "nullEq0"
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 72
+y 350
+w 25
+h 18
+fgColor index 14
+onColor index 4
+offColor index 4
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(BASE):CH4:ENABLE"
+pressValue "0"
+onLabel "Off"
+offLabel "Off"
+3d
+useEnumNumeric
+font "helvetica-bold-r-12.0"
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 100
+y 350
+w 25
+h 18
+fgColor index 14
+onColor index 4
+offColor index 4
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(BASE):CH4:ENABLE"
+pressValue "1"
+onLabel "On"
+offLabel "On"
+3d
+useEnumNumeric
+font "helvetica-bold-r-12.0"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 24
+y 354
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 15
+visPv "$(BASE):CH4:ENABLE_RBV"
+visMin "1"
+visMax "2"
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 492
+y 350
+w 72
+h 19
+controlPv "$(BASE):CH4:CHARGE_INHIBIT"
+font "courier-medium-r-12.0"
+fgColor index 25
+bgColor index 4
+editable
+motifWidget
+limitsFromDb
+nullPv "$(BASE):CH4:ENABLE_RBV"
+nullColor index 0
+nullCondition "nullEq0"
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 572
+y 350
+w 72
+h 19
+controlPv "$(BASE):CH4:CHARGE_INHIBIT_RBV"
+font "courier-medium-r-12.0"
+fgColor index 15
+fgAlarm
+bgColor index 12
+motifWidget
+limitsFromDb
+nullColor index 18
+newPos
+objType "monitors"
+id "c"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 672
+y 350
+w 72
+h 19
+controlPv "$(BASE):CH4:CI_COUNTDOWN"
+font "courier-medium-r-12.0"
+fgColor index 15
+fgAlarm
+bgColor index 12
+motifWidget
+limitsFromDb
+nullColor index 18
+newPos
+objType "monitors"
+id "c"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 760
+y 350
+w 180
+h 21
+controlPv "$(BASE):CH4:CHARGE_STATE"
+font "helvetica-medium-r-18.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+autoHeight
+limitsFromDb
+nullColor index 0
+fastUpdate
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 24
+y 354
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 14
+visPv "$(BASE):CH4:ENABLE_RBV"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 132
+y 350
+w 168
+h 21
+controlPv "$(BASE):CH4:NAME"
+font "helvetica-medium-r-18.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+autoHeight
+limitsFromDb
+nullColor index 0
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 760
+y 375
+w 180
+h 20
+lineColor index 14
+fill
+fillColor index 15
+visPv "$(BASE):CH5:CHARGE_STATE"
+visMin "2"
+visMax "3"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 760
+y 375
+w 180
+h 20
+lineColor index 14
+fill
+fillColor index 35
+visPv "$(BASE):CH5:CHARGE_STATE"
+visMin "1"
+visMax "2"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 760
+y 375
+w 180
+h 20
+lineColor index 14
+fill
+fillColor index 0
+visPv "$(BASE):CH5:CHARGE_STATE"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 388
+y 375
+w 72
+h 19
+controlPv "$(BASE):CH5:VOLTAGE_MEASURED"
+font "courier-medium-r-12.0"
+fgColor index 15
+fgAlarm
+bgColor index 12
+motifWidget
+limitsFromDb
+nullColor index 18
+newPos
+objType "monitors"
+id "c"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 308
+y 375
+w 72
+h 19
+controlPv "$(BASE):CH5:VOLTAGE"
+font "courier-medium-r-12.0"
+fgColor index 25
+bgColor index 4
+editable
+motifWidget
+limitsFromDb
+nullPv "$(BASE):CH5:ENABLE_RBV"
+nullColor index 0
+nullCondition "nullEq0"
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 72
+y 375
+w 25
+h 18
+fgColor index 14
+onColor index 4
+offColor index 4
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(BASE):CH5:ENABLE"
+pressValue "0"
+onLabel "Off"
+offLabel "Off"
+3d
+useEnumNumeric
+font "helvetica-bold-r-12.0"
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 100
+y 375
+w 25
+h 18
+fgColor index 14
+onColor index 4
+offColor index 4
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(BASE):CH5:ENABLE"
+pressValue "1"
+onLabel "On"
+offLabel "On"
+3d
+useEnumNumeric
+font "helvetica-bold-r-12.0"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 24
+y 379
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 15
+visPv "$(BASE):CH5:ENABLE_RBV"
+visMin "1"
+visMax "2"
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 492
+y 375
+w 72
+h 19
+controlPv "$(BASE):CH5:CHARGE_INHIBIT"
+font "courier-medium-r-12.0"
+fgColor index 25
+bgColor index 4
+editable
+motifWidget
+limitsFromDb
+nullPv "$(BASE):CH5:ENABLE_RBV"
+nullColor index 0
+nullCondition "nullEq0"
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 572
+y 375
+w 72
+h 19
+controlPv "$(BASE):CH5:CHARGE_INHIBIT_RBV"
+font "courier-medium-r-12.0"
+fgColor index 15
+fgAlarm
+bgColor index 12
+motifWidget
+limitsFromDb
+nullColor index 18
+newPos
+objType "monitors"
+id "c"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 672
+y 375
+w 72
+h 19
+controlPv "$(BASE):CH5:CI_COUNTDOWN"
+font "courier-medium-r-12.0"
+fgColor index 15
+fgAlarm
+bgColor index 12
+motifWidget
+limitsFromDb
+nullColor index 18
+newPos
+objType "monitors"
+id "c"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 760
+y 375
+w 180
+h 21
+controlPv "$(BASE):CH5:CHARGE_STATE"
+font "helvetica-medium-r-18.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+autoHeight
+limitsFromDb
+nullColor index 0
+fastUpdate
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 24
+y 379
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 14
+visPv "$(BASE):CH5:ENABLE_RBV"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 132
+y 375
+w 168
+h 21
+controlPv "$(BASE):CH5:NAME"
+font "helvetica-medium-r-18.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+autoHeight
+limitsFromDb
+nullColor index 0
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 760
+y 400
+w 180
+h 20
+lineColor index 14
+fill
+fillColor index 15
+visPv "$(BASE):CH6:CHARGE_STATE"
+visMin "2"
+visMax "3"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 760
+y 400
+w 180
+h 20
+lineColor index 14
+fill
+fillColor index 35
+visPv "$(BASE):CH6:CHARGE_STATE"
+visMin "1"
+visMax "2"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 760
+y 400
+w 180
+h 20
+lineColor index 14
+fill
+fillColor index 0
+visPv "$(BASE):CH6:CHARGE_STATE"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 388
+y 400
+w 72
+h 19
+controlPv "$(BASE):CH6:VOLTAGE_MEASURED"
+font "courier-medium-r-12.0"
+fgColor index 15
+fgAlarm
+bgColor index 12
+motifWidget
+limitsFromDb
+nullColor index 18
+newPos
+objType "monitors"
+id "c"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 308
+y 400
+w 72
+h 19
+controlPv "$(BASE):CH6:VOLTAGE"
+font "courier-medium-r-12.0"
+fgColor index 25
+bgColor index 4
+editable
+motifWidget
+limitsFromDb
+nullPv "$(BASE):CH6:ENABLE_RBV"
+nullColor index 0
+nullCondition "nullEq0"
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 72
+y 400
+w 25
+h 18
+fgColor index 14
+onColor index 4
+offColor index 4
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(BASE):CH6:ENABLE"
+pressValue "0"
+onLabel "Off"
+offLabel "Off"
+3d
+useEnumNumeric
+font "helvetica-bold-r-12.0"
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 100
+y 400
+w 25
+h 18
+fgColor index 14
+onColor index 4
+offColor index 4
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(BASE):CH6:ENABLE"
+pressValue "1"
+onLabel "On"
+offLabel "On"
+3d
+useEnumNumeric
+font "helvetica-bold-r-12.0"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 24
+y 404
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 15
+visPv "$(BASE):CH6:ENABLE_RBV"
+visMin "1"
+visMax "2"
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 492
+y 400
+w 72
+h 19
+controlPv "$(BASE):CH6:CHARGE_INHIBIT"
+font "courier-medium-r-12.0"
+fgColor index 25
+bgColor index 4
+editable
+motifWidget
+limitsFromDb
+nullPv "$(BASE):CH6:ENABLE_RBV"
+nullColor index 0
+nullCondition "nullEq0"
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 572
+y 400
+w 72
+h 19
+controlPv "$(BASE):CH6:CHARGE_INHIBIT_RBV"
+font "courier-medium-r-12.0"
+fgColor index 15
+fgAlarm
+bgColor index 12
+motifWidget
+limitsFromDb
+nullColor index 18
+newPos
+objType "monitors"
+id "c"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 672
+y 400
+w 72
+h 19
+controlPv "$(BASE):CH6:CI_COUNTDOWN"
+font "courier-medium-r-12.0"
+fgColor index 15
+fgAlarm
+bgColor index 12
+motifWidget
+limitsFromDb
+nullColor index 18
+newPos
+objType "monitors"
+id "c"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 760
+y 400
+w 180
+h 21
+controlPv "$(BASE):CH6:CHARGE_STATE"
+font "helvetica-medium-r-18.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+autoHeight
+limitsFromDb
+nullColor index 0
+fastUpdate
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 24
+y 404
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 14
+visPv "$(BASE):CH6:ENABLE_RBV"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 132
+y 400
+w 168
+h 21
+controlPv "$(BASE):CH6:NAME"
+font "helvetica-medium-r-18.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+autoHeight
+limitsFromDb
+nullColor index 0
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 760
+y 425
+w 180
+h 20
+lineColor index 14
+fill
+fillColor index 15
+visPv "$(BASE):CH7:CHARGE_STATE"
+visMin "2"
+visMax "3"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 760
+y 425
+w 180
+h 20
+lineColor index 14
+fill
+fillColor index 35
+visPv "$(BASE):CH7:CHARGE_STATE"
+visMin "1"
+visMax "2"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 760
+y 425
+w 180
+h 20
+lineColor index 14
+fill
+fillColor index 0
+visPv "$(BASE):CH7:CHARGE_STATE"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 388
+y 425
+w 72
+h 19
+controlPv "$(BASE):CH7:VOLTAGE_MEASURED"
+font "courier-medium-r-12.0"
+fgColor index 15
+fgAlarm
+bgColor index 12
+motifWidget
+limitsFromDb
+nullColor index 18
+newPos
+objType "monitors"
+id "c"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 308
+y 425
+w 72
+h 19
+controlPv "$(BASE):CH7:VOLTAGE"
+font "courier-medium-r-12.0"
+fgColor index 25
+bgColor index 4
+editable
+motifWidget
+limitsFromDb
+nullPv "$(BASE):CH7:ENABLE_RBV"
+nullColor index 0
+nullCondition "nullEq0"
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 72
+y 425
+w 25
+h 18
+fgColor index 14
+onColor index 4
+offColor index 4
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(BASE):CH7:ENABLE"
+pressValue "0"
+onLabel "Off"
+offLabel "Off"
+3d
+useEnumNumeric
+font "helvetica-bold-r-12.0"
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 100
+y 425
+w 25
+h 18
+fgColor index 14
+onColor index 4
+offColor index 4
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(BASE):CH7:ENABLE"
+pressValue "1"
+onLabel "On"
+offLabel "On"
+3d
+useEnumNumeric
+font "helvetica-bold-r-12.0"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 24
+y 429
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 15
+visPv "$(BASE):CH7:ENABLE_RBV"
+visMin "1"
+visMax "2"
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 492
+y 425
+w 72
+h 19
+controlPv "$(BASE):CH7:CHARGE_INHIBIT"
+font "courier-medium-r-12.0"
+fgColor index 25
+bgColor index 4
+editable
+motifWidget
+limitsFromDb
+nullPv "$(BASE):CH7:ENABLE_RBV"
+nullColor index 0
+nullCondition "nullEq0"
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 572
+y 425
+w 72
+h 19
+controlPv "$(BASE):CH7:CHARGE_INHIBIT_RBV"
+font "courier-medium-r-12.0"
+fgColor index 15
+fgAlarm
+bgColor index 12
+motifWidget
+limitsFromDb
+nullColor index 18
+newPos
+objType "monitors"
+id "c"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 672
+y 425
+w 72
+h 19
+controlPv "$(BASE):CH7:CI_COUNTDOWN"
+font "courier-medium-r-12.0"
+fgColor index 15
+fgAlarm
+bgColor index 12
+motifWidget
+limitsFromDb
+nullColor index 18
+newPos
+objType "monitors"
+id "c"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 760
+y 425
+w 180
+h 21
+controlPv "$(BASE):CH7:CHARGE_STATE"
+font "helvetica-medium-r-18.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+autoHeight
+limitsFromDb
+nullColor index 0
+fastUpdate
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 24
+y 429
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 14
+visPv "$(BASE):CH7:ENABLE_RBV"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 132
+y 425
+w 168
+h 21
+controlPv "$(BASE):CH7:NAME"
+font "helvetica-medium-r-18.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+autoHeight
+limitsFromDb
+nullColor index 0
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 760
+y 450
+w 180
+h 20
+lineColor index 14
+fill
+fillColor index 15
+visPv "$(BASE):CH8:CHARGE_STATE"
+visMin "2"
+visMax "3"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 760
+y 450
+w 180
+h 20
+lineColor index 14
+fill
+fillColor index 35
+visPv "$(BASE):CH8:CHARGE_STATE"
+visMin "1"
+visMax "2"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 760
+y 450
+w 180
+h 20
+lineColor index 14
+fill
+fillColor index 0
+visPv "$(BASE):CH8:CHARGE_STATE"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 388
+y 450
+w 72
+h 19
+controlPv "$(BASE):CH8:VOLTAGE_MEASURED"
+font "courier-medium-r-12.0"
+fgColor index 15
+fgAlarm
+bgColor index 12
+motifWidget
+limitsFromDb
+nullColor index 18
+newPos
+objType "monitors"
+id "c"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 308
+y 450
+w 72
+h 19
+controlPv "$(BASE):CH8:VOLTAGE"
+font "courier-medium-r-12.0"
+fgColor index 25
+bgColor index 4
+editable
+motifWidget
+limitsFromDb
+nullPv "$(BASE):CH8:ENABLE_RBV"
+nullColor index 0
+nullCondition "nullEq0"
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 72
+y 450
+w 25
+h 18
+fgColor index 14
+onColor index 4
+offColor index 4
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(BASE):CH8:ENABLE"
+pressValue "0"
+onLabel "Off"
+offLabel "Off"
+3d
+useEnumNumeric
+font "helvetica-bold-r-12.0"
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 100
+y 450
+w 25
+h 18
+fgColor index 14
+onColor index 4
+offColor index 4
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(BASE):CH8:ENABLE"
+pressValue "1"
+onLabel "On"
+offLabel "On"
+3d
+useEnumNumeric
+font "helvetica-bold-r-12.0"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 24
+y 454
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 15
+visPv "$(BASE):CH8:ENABLE_RBV"
+visMin "1"
+visMax "2"
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 492
+y 450
+w 72
+h 19
+controlPv "$(BASE):CH8:CHARGE_INHIBIT"
+font "courier-medium-r-12.0"
+fgColor index 25
+bgColor index 4
+editable
+motifWidget
+limitsFromDb
+nullPv "$(BASE):CH8:ENABLE_RBV"
+nullColor index 0
+nullCondition "nullEq0"
+newPos
+objType "controls"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 572
+y 450
+w 72
+h 19
+controlPv "$(BASE):CH8:CHARGE_INHIBIT_RBV"
+font "courier-medium-r-12.0"
+fgColor index 15
+fgAlarm
+bgColor index 12
+motifWidget
+limitsFromDb
+nullColor index 18
+newPos
+objType "monitors"
+id "c"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 672
+y 450
+w 72
+h 19
+controlPv "$(BASE):CH8:CI_COUNTDOWN"
+font "courier-medium-r-12.0"
+fgColor index 15
+fgAlarm
+bgColor index 12
+motifWidget
+limitsFromDb
+nullColor index 18
+newPos
+objType "monitors"
+id "c"
+noExecuteClipMask
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 760
+y 450
+w 180
+h 21
+controlPv "$(BASE):CH8:CHARGE_STATE"
+font "helvetica-medium-r-18.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+autoHeight
+limitsFromDb
+nullColor index 0
+fastUpdate
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 24
+y 454
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 14
+visPv "$(BASE):CH8:ENABLE_RBV"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 132
+y 450
+w 168
+h 21
+controlPv "$(BASE):CH8:NAME"
+font "helvetica-medium-r-18.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+autoHeight
+limitsFromDb
+nullColor index 0
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 828
+y 224
+w 36
+h 20
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "State"
+}
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 24
+y 44
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 14
+visPv "CALC\\\{(A=0)&&!(B=0)\}($(BASE):MODE_RBV,$(BASE):MODE_OK)"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 24
+y 68
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 14
+visPv "CALC\\\{(A=1)&&!(B=0)\}($(BASE):MODE_RBV,$(BASE):MODE_OK)"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 24
+y 96
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 14
+visPv "CALC\\\{(A=2)&&!(B=0)\}($(BASE):MODE_RBV,$(BASE):MODE_OK)"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 24
+y 156
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 14
+fillAlarm
+visPv "$(BASE):CHARGE_OK"
+visMin "0"
+visMax "1"
+endObjectProperties
+
