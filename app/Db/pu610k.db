@@ -215,19 +215,17 @@ record(longin, "$(BASE):$(CHAN):CI_COUNTDOWN") {
     field(DTYP, "stream")
     field(INP,  "@pu610k.proto CICountdownGet $(PORT)")
     field(SCAN, "I/O Intr")			# Comes for free with CHARGE_INHIBIT_RBV.
-    field(FLNK, "$(BASE):$(CHAN):CHARGE_ENABLE")
 }
 
 record(calc, "$(BASE):$(CHAN):CHARGE_ENABLE") {
-    field(INPA, "$(BASE):$(CHAN):CI_COUNTDOWN")
-    field(INPB, "$(BASE):$(CHAN):MODE_IS_READY5")
+    field(INPA, "$(BASE):$(CHAN):CI_COUNTDOWN CPP")
+    field(INPB, "$(BASE):$(CHAN):MODE_IS_READY5 CPP")
     field(CALC, "(A==0)&&(B==5)")		# Charge enabled if count is 0 and in MD,2 for 5 sec.
-    field(FLNK, "$(BASE):$(CHAN):CHARGE_OK")
 }
 
 record(calc, "$(BASE):$(CHAN):CHARGE_OK") {
-    field(INPA, "$(BASE):$(CHAN):CHARGE_ENABLE")
-    field(INPB, "$(BASE):$(CHAN):ENABLE_RBV")
+    field(INPA, "$(BASE):$(CHAN):CHARGE_ENABLE CPP")
+    field(INPB, "$(BASE):$(CHAN):ENABLE_RBV CPP")
     field(CALC, "(A!=0)||(B==0)")               # Charge state is good if charge is enabled or we're disabled.
 }
 

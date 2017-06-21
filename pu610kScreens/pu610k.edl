@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 1714
-y 465
+x 72
+y 314
 w 914
 h 329
 font "helvetica-medium-r-18.0"
@@ -3650,7 +3650,7 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 788
+x 792
 y 72
 w 40
 h 20
@@ -3699,9 +3699,9 @@ lineColor index 14
 fill
 fillColor index 15
 fillAlarm
-visPv "CALC\\\{(A=2)&&!(B=0)\}($(BASE):MODE_RBV,$(BASE):MODE_OK)"
-visMin "1"
-visMax "2"
+visPv "$(BASE):MODE_OK"
+visMin "0"
+visMax "1"
 endObjectProperties
 
 # (Rectangle)
@@ -3717,9 +3717,9 @@ h 10
 lineColor index 14
 fill
 fillColor index 14
-visPv "CALC\\\{(A=2)&&!(B=0)\}($(BASE):MODE_RBV,$(BASE):MODE_OK)"
-visMin "0"
-visMax "1"
+visPv "$(BASE):MODE_OK"
+visMin "1"
+visMax "2"
 endObjectProperties
 
 # (Rectangle)
@@ -3734,5 +3734,23 @@ w 292
 h 56
 lineColor index 14
 fillColor index 0
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 472
+y 40
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 20
+visPv "$(BASE):FAULT"
+visMin "1"
+visMax "2"
 endObjectProperties
 
