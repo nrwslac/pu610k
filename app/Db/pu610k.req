@@ -2,7 +2,7 @@
 # List of PVs to autosave.  Assume $(BASE) is the detector base PV,
 # $(CHAN) is the channel number/name, and $(IOC) is the IOC base PV.
 #
-$(BASE):$(CHAN):ENABLE
+$(BASE):$(CHAN):ENABLE_RBV
 $(BASE):$(CHAN):VOLTAGE
 $(BASE):$(CHAN):CHARGE_INHIBIT
 $(BASE):$(CHAN):FLASH_MODE

@@ -18,6 +18,7 @@ char *flog = NULL;
 
 int mode     = 0;
 int admin    = 0;
+int haserror = 0;
 int voltage  = 0;
 int curvolt  = 0;
 int charging = 0;
@@ -57,6 +58,15 @@ void usr2sig(int sig)
     shots++;
 }
 
+void usr1sig(int sig)
+{
+    haserror = !haserror;
+    if (haserror) {
+        mode = 4;
+        charging = 0;
+    }
+}
+
 void simulate(void)
 {
     char buf[512];
@@ -64,6 +74,7 @@ void simulate(void)
     int lastshot = shots;
     time_t now;
 
+    signal(SIGUSR1, usr1sig);
     signal(SIGUSR2, usr2sig);
 
     if (flog) {
@@ -87,6 +98,14 @@ void simulate(void)
             buf[len--] = 0;
         if (buf[0] != ':') {
             fprintf(stderr, "Bad command: %s\n", buf);
+        } else  if (buf[1] == 'E' && buf[2] == 'R') { /* Actually, assumes "ER," */
+            if (haserror) {
+                printf(":ER,13,008E,External interlock\r\n");
+                fprintf(stderr, "Simulated error\n");
+            } else {
+                printf(":ER,OK,000E\r\n");
+                fprintf(stderr, "No error\n");
+            }
         } else  if (buf[1] == 'P' && buf[2] == 'W') {
             admin = !strcmp(buf, ":PW,LASER");
             fprintf(stderr, "PW admin = %d\n", admin);
@@ -94,11 +113,11 @@ void simulate(void)
         } else if (buf[1] == 'M' && buf[2] == 'D') {
             if (buf[3] == ',') {
                 int newmode = atoi(buf + 4);
-                if (newmode < 0 || newmode > 2 || (newmode == 2 && mode == 0)) {
+                if (newmode < 0 || newmode > 2 || (newmode == 2 && mode == 0) || (mode == 4 && newmode != 0)) {
                     fprintf(stderr, "Illegal new mode: %s\n", buf);
                     printf(":MD,!\r\n");
                 } else {
-                    mode = newmode;
+                    mode = haserror ? 4 : newmode;
                     if (mode == 2) {
                         m2_time = time(0);
                         fprintf(stderr, "mode %d @%ld\n", mode, m2_time);
@@ -216,7 +235,7 @@ void simulate(void)
         } else if (buf[1] == 'V' && buf[2] == 'B') {
             printf(":%s\r\n", buf);
         } else if (buf[1] == 'L' && buf[2] == 'E') {
-            printf(":LE,%04x,0,008E,%x,0\r\n", mode << 16, shots);
+            printf(":LE,%04x,0,008E,%x,0\r\n", mode << 8, shots);
             fprintf(stderr, "Status mode %d, shots %d\n", mode, shots);
         } else {
             fprintf(stderr, "Unknown operation: %s\n", buf);
@@ -266,10 +285,12 @@ void server(void)
         if (FD_ISSET(0, &rd_set)) {
             char buf[512];
             int i;
+            int sig;
             printf("STDIN!\n");
             fgets(buf, 512, stdin);
+            sig = (buf[0] == 'e') ? SIGUSR1 : SIGUSR2;
             for (i = 0; i < pidcnt; i++) {
-                kill(pid[i], SIGUSR2);
+                kill(pid[i], sig);
             }
         }
         if (FD_ISSET(fd, &rd_set)) {

@@ -22,10 +22,11 @@ pu610k_DBD += asyn.dbd
 pu610k_DBD += asynRecord.dbd
 pu610k_DBD += stream.dbd
 pu610k_DBD += drvAsynIPPort.dbd
+pu610k_DBD += pu610kSubs.dbd
 
 # <name>_registerRecordDeviceDriver.cpp will be created from <name>.dbd
 pu610k_SRCS += pu610k_registerRecordDeviceDriver.cpp
-pu610k_SRCS_DEFAULT += pu610kMain.cpp
+pu610k_SRCS_DEFAULT += pu610kMain.cpp pu610kSubs.c
 
 pu610k_LIBS += devIocStats
 pu610k_LIBS += autosave

@@ -24,13 +24,14 @@ ChargeDone       { out ":CH";  in ":CH,EOC%d"; }
 
 HighVoltageGet   { out ":HV"; in ":HV,%d"; @mismatch { in ":HV!%*s"; }}       # measured volts (during MD,2)
 
-ErrorGet         { out ":ER"; in ":ER,%2s,%4*x"; } # OK or error number.
 FlashModeSet     { out ":PF,%d"; in ":PF,%*d"; }   # 3=Auto, 7=Manual. Requires reboot after setting
 FlashModeGet     { in ":PF,%d"; }                  # 3=Auto, 7=Manual.
 Reboot		 { out ":RB"; }                    # Must be in MD 0
 
 VoltageSet       { out ":VS,%d"; in ":VS,%*d"; }
 VoltageGet       { out ":VS"; in ":VS,%d"; }
+
+ErrorGet         { out ":ER,"; in ":ER,%80c"; }
 
 WatchdogSet      { out ":WD,%d"; in ":WD,%*d"; }
 WatchdogGet      { out ":WD"; in ":WD,%*d"; }

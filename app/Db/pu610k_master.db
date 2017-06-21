@@ -1,15 +1,13 @@
 record(longout, "$(BASE):MODE") {
-    field(TPRO, "$(T0)")
     field(DESC, "PU610K Operating Mode")
     field(DRVL, "0")
     field(DRVH, "2")
     field(VAL,  "0")
     field(PINI, "YES")
-    field(FLNK, "$(BASE):CHECK_MODE")
+    field(FLNK, "$(BASE):MODE_ALLOW")
 }
 
-record(calcout, "$(BASE):CHECK_MODE") {
-    field(TPRO, "$(T0)")
+record(calcout, "$(BASE):MODE_ALLOW") {
     field(INPA, "$(BASE):MODE")
     field(INPB, "$(BASE):MODE_RBV")
     field(CALC, "!(A==2&&B==0)")
@@ -20,7 +18,6 @@ record(calcout, "$(BASE):CHECK_MODE") {
 }
 
 record(dfanout, "$(BASE):MODE_RBV") {
-    field(TPRO, "1")
     field(DESC, "PU610K Operating Mode")
     field(OMSL, "supervisory")
     field(VAL,  "0")
@@ -33,12 +30,11 @@ record(dfanout, "$(BASE):MODE_RBV") {
     field(OUTF, "$(BASE):CH5:MODE PP")
     field(OUTG, "$(BASE):CH6:MODE PP")
     field(OUTH, "$(BASE):CH7:MODE PP")
-    field(FLNK, "$(BASE):MODE2")
+    field(FLNK, "$(BASE):MODE_SET2")
     field(PINI, "YES")
 }
 
-record(dfanout, "$(BASE):MODE2") {
-    field(TPRO, "1")
+record(dfanout, "$(BASE):MODE_SET2") {
     field(DESC, "PU610K Operating Mode")
     field(OMSL, "closed_loop")
     field(DOL, "$(BASE):MODE")
@@ -48,7 +44,6 @@ record(dfanout, "$(BASE):MODE2") {
 }
 
 record(calc,    "$(BASE):MODE_IS_STOP") {
-    field(TPRO, "1")
     field(INPA, "$(BASE):MODE")
     field(INPB, "$(BASE):MODE_OK")
     field(CALC, "(A==0&&B!=0)?1:0")
@@ -56,14 +51,12 @@ record(calc,    "$(BASE):MODE_IS_STOP") {
 }
 
 record(calc,    "$(BASE):MODE_IS_READY") {
-    field(TPRO, "1")
     field(INPA, "$(BASE):MODE")
     field(INPB, "$(BASE):MODE_OK")
     field(CALC, "(A==2&&B!=0)?1:0")
 }
 
 record(calc,    "$(BASE):MODE_OK") {
-    field(TPRO, "$(T0)")
     field(INPA, "$(BASE):CH0:MODE_OK CPP")
     field(INPB, "$(BASE):CH1:MODE_OK CPP")
     field(INPC, "$(BASE):CH2:MODE_OK CPP")
@@ -78,8 +71,21 @@ record(calc,    "$(BASE):MODE_OK") {
     field(FLNK, "$(BASE):MODE_IS_STOP")
 }
 
+record(calc,    "$(BASE):FAULT") {
+    field(INPA, "$(BASE):CH0:FAULT CPP")
+    field(INPB, "$(BASE):CH1:FAULT CPP")
+    field(INPC, "$(BASE):CH2:FAULT CPP")
+    field(INPD, "$(BASE):CH3:FAULT CPP")
+    field(INPE, "$(BASE):CH4:FAULT CPP")
+    field(INPF, "$(BASE):CH5:FAULT CPP")
+    field(INPG, "$(BASE):CH6:FAULT CPP")
+    field(INPH, "$(BASE):CH7:FAULT CPP")
+    field(INPI, "$(BASE):CH8:FAULT CPP")
+    field(CALC, "A|B|C|D|E|F|G|H|I")
+    field(PINI, "YES")
+}
+
 record(calc,    "$(BASE):CHARGE_OK") {
-    field(TPRO, "$(T0)")
     field(INPA, "$(BASE):CH0:CHARGE_OK CPP")
     field(INPB, "$(BASE):CH1:CHARGE_OK CPP")
     field(INPC, "$(BASE):CH2:CHARGE_OK CPP")
@@ -95,7 +101,6 @@ record(calc,    "$(BASE):CHARGE_OK") {
 }
 
 record(dfanout, "$(BASE):START_CHARGE") {
-    field(TPRO, "$(T0)")
     field(DESC, "PU610K Operating Mode")
     field(OMSL, "supervisory")
     field(VAL,  "1")

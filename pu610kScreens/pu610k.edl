@@ -3,10 +3,10 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 2236
-y 358
-w 962
-h 483
+x 1714
+y 465
+w 914
+h 329
 font "helvetica-medium-r-18.0"
 ctlFont "helvetica-medium-r-18.0"
 btnFont "helvetica-medium-r-18.0"
@@ -26,14 +26,725 @@ gridSize 4
 disableScroll
 endScreenProperties
 
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 740
+y 300
+w 150
+h 21
+controlPv "$(BASE):CH8:ERRORMSG"
+font "helvetica-medium-r-18.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+autoHeight
+limitsFromDb
+nullColor index 0
+fastUpdate
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 740
+y 272
+w 150
+h 21
+controlPv "$(BASE):CH7:ERRORMSG"
+font "helvetica-medium-r-18.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+autoHeight
+limitsFromDb
+nullColor index 0
+fastUpdate
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 740
+y 248
+w 150
+h 21
+controlPv "$(BASE):CH6:ERRORMSG"
+font "helvetica-medium-r-18.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+autoHeight
+limitsFromDb
+nullColor index 0
+fastUpdate
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 740
+y 224
+w 150
+h 21
+controlPv "$(BASE):CH5:ERRORMSG"
+font "helvetica-medium-r-18.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+autoHeight
+limitsFromDb
+nullColor index 0
+fastUpdate
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 740
+y 200
+w 150
+h 21
+controlPv "$(BASE):CH4:ERRORMSG"
+font "helvetica-medium-r-18.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+autoHeight
+limitsFromDb
+nullColor index 0
+fastUpdate
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 740
+y 172
+w 150
+h 21
+controlPv "$(BASE):CH3:ERRORMSG"
+font "helvetica-medium-r-18.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+autoHeight
+limitsFromDb
+nullColor index 0
+fastUpdate
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 740
+y 148
+w 150
+h 21
+controlPv "$(BASE):CH2:ERRORMSG"
+font "helvetica-medium-r-18.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+autoHeight
+limitsFromDb
+nullColor index 0
+fastUpdate
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 740
+y 124
+w 150
+h 21
+controlPv "$(BASE):CH1:ERRORMSG"
+font "helvetica-medium-r-18.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+autoHeight
+limitsFromDb
+nullColor index 0
+fastUpdate
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 740
+y 100
+w 150
+h 21
+controlPv "$(BASE):CH0:ERRORMSG"
+font "helvetica-medium-r-18.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+autoHeight
+limitsFromDb
+nullColor index 0
+fastUpdate
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
 # (Rectangle)
 object activeRectangleClass
 beginObjectProperties
 major 4
 minor 0
 release 0
-x 24
-y 156
+x 20
+y 304
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 15
+visPv "$(BASE):CH8:ENABLE_RBV"
+visMin "1"
+visMax "2"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 20
+y 276
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 15
+visPv "$(BASE):CH7:ENABLE_RBV"
+visMin "1"
+visMax "2"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 20
+y 252
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 15
+visPv "$(BASE):CH6:ENABLE_RBV"
+visMin "1"
+visMax "2"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 20
+y 228
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 15
+visPv "$(BASE):CH5:ENABLE_RBV"
+visMin "1"
+visMax "2"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 20
+y 204
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 15
+visPv "$(BASE):CH4:ENABLE_RBV"
+visMin "1"
+visMax "2"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 20
+y 176
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 15
+visPv "$(BASE):CH3:ENABLE_RBV"
+visMin "1"
+visMax "2"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 20
+y 152
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 15
+visPv "$(BASE):CH2:ENABLE_RBV"
+visMin "1"
+visMax "2"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 20
+y 128
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 15
+visPv "$(BASE):CH1:ENABLE_RBV"
+visMin "1"
+visMax "2"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 20
+y 104
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 15
+visPv "$(BASE):CH0:ENABLE_RBV"
+visMin "1"
+visMax "2"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 20
+y 304
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 35
+visPv "$(BASE):CH8:MODE_RBV"
+visMin "4"
+visMax "5"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 20
+y 276
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 35
+visPv "$(BASE):CH7:MODE_RBV"
+visMin "4"
+visMax "5"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 20
+y 252
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 35
+visPv "$(BASE):CH6:MODE_RBV"
+visMin "4"
+visMax "5"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 20
+y 228
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 35
+visPv "$(BASE):CH5:MODE_RBV"
+visMin "4"
+visMax "5"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 20
+y 204
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 35
+visPv "$(BASE):CH4:MODE_RBV"
+visMin "4"
+visMax "5"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 20
+y 176
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 35
+visPv "$(BASE):CH3:MODE_RBV"
+visMin "4"
+visMax "5"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 20
+y 152
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 35
+visPv "$(BASE):CH2:MODE_RBV"
+visMin "4"
+visMax "5"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 20
+y 128
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 35
+visPv "$(BASE):CH1:MODE_RBV"
+visMin "4"
+visMax "5"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 20
+y 104
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 35
+visPv "$(BASE):CH0:MODE_RBV"
+visMin "4"
+visMax "5"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 20
+y 304
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 14
+visPv "$(BASE):CH8:ENABLE_RBV"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 20
+y 276
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 14
+visPv "$(BASE):CH7:ENABLE_RBV"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 20
+y 252
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 14
+visPv "$(BASE):CH6:ENABLE_RBV"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 20
+y 228
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 14
+visPv "$(BASE):CH5:ENABLE_RBV"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 20
+y 204
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 14
+visPv "$(BASE):CH4:ENABLE_RBV"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 20
+y 176
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 14
+visPv "$(BASE):CH3:ENABLE_RBV"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 20
+y 152
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 14
+visPv "$(BASE):CH2:ENABLE_RBV"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 20
+y 128
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 14
+visPv "$(BASE):CH1:ENABLE_RBV"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 20
+y 104
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 14
+visPv "$(BASE):CH0:ENABLE_RBV"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 624
+y 40
 w 40
 h 10
 lineColor index 14
@@ -51,8 +762,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 24
-y 188
+x 780
+y 40
 w 40
 h 10
 lineColor index 14
@@ -67,8 +778,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 76
-y 152
+x 676
+y 36
 w 60
 h 18
 fgColor index 14
@@ -91,8 +802,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 76
-y 184
+x 832
+y 36
 w 60
 h 18
 fgColor index 14
@@ -115,16 +826,16 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 16
-y 16
-w 104
+x 12
+y 12
+w 88
 h 20
 font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 0
 useDisplayBg
 value {
-  "System Control"
+  "System State"
 }
 endObjectProperties
 
@@ -134,9 +845,9 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 16
-y 132
-w 104
+x 616
+y 12
+w 56
 h 20
 font "helvetica-bold-r-12.0"
 fgColor index 14
@@ -153,8 +864,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 76
-y 40
+x 72
+y 36
 w 60
 h 20
 fgColor index 14
@@ -177,8 +888,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 76
-y 64
+x 220
+y 36
 w 60
 h 20
 fgColor index 14
@@ -201,8 +912,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 76
-y 92
+x 376
+y 36
 w 60
 h 20
 fgColor index 14
@@ -225,8 +936,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 24
-y 44
+x 20
+y 40
 w 40
 h 10
 lineColor index 14
@@ -243,8 +954,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 24
-y 68
+x 168
+y 40
 w 40
 h 10
 lineColor index 14
@@ -262,8 +973,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 24
-y 96
+x 324
+y 40
 w 40
 h 10
 lineColor index 14
@@ -281,24 +992,10 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 12
-y 128
-w 132
-h 84
-lineColor index 14
-fillColor index 0
-endObjectProperties
-
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 12
-y 12
-w 132
-h 108
+x 8
+y 8
+w 592
+h 56
 lineColor index 14
 fillColor index 0
 endObjectProperties
@@ -309,8 +1006,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 76
-y 224
+x 72
+y 72
 w 44
 h 20
 font "helvetica-bold-r-12.0"
@@ -328,8 +1025,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 188
-y 224
+x 184
+y 72
 w 44
 h 20
 font "helvetica-bold-r-12.0"
@@ -347,8 +1044,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 348
-y 224
+x 304
+y 72
 w 76
 h 20
 font "helvetica-bold-r-12.0"
@@ -366,8 +1063,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 512
-y 224
+x 408
+y 72
 w 124
 h 20
 font "helvetica-bold-r-12.0"
@@ -385,16 +1082,16 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 664
-y 224
-w 92
+x 532
+y 72
+w 70
 h 20
 font "helvetica-bold-r-12.0"
 fgColor index 14
 bgColor index 0
 useDisplayBg
 value {
-  "CI Count (sec)"
+  "Countdown"
 }
 endObjectProperties
 
@@ -404,9 +1101,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 760
-y 250
-w 180
+x 600
+y 100
+w 130
 h 20
 lineColor index 14
 fill
@@ -422,9 +1119,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 760
-y 250
-w 180
+x 600
+y 100
+w 130
 h 20
 lineColor index 14
 fill
@@ -440,9 +1137,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 760
-y 250
-w 180
+x 600
+y 100
+w 130
 h 20
 lineColor index 14
 fill
@@ -458,9 +1155,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 388
-y 250
-w 72
+x 344
+y 100
+w 50
 h 19
 controlPv "$(BASE):CH0:VOLTAGE_MEASURED"
 font "courier-medium-r-12.0"
@@ -482,9 +1179,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 308
-y 250
-w 72
+x 288
+y 100
+w 50
 h 19
 controlPv "$(BASE):CH0:VOLTAGE"
 font "courier-medium-r-12.0"
@@ -507,8 +1204,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 72
-y 250
+x 68
+y 100
 w 25
 h 18
 fgColor index 14
@@ -531,8 +1228,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 100
-y 250
+x 96
+y 100
 w 25
 h 18
 fgColor index 14
@@ -549,33 +1246,15 @@ useEnumNumeric
 font "helvetica-bold-r-12.0"
 endObjectProperties
 
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 24
-y 254
-w 40
-h 10
-lineColor index 14
-fill
-fillColor index 15
-visPv "$(BASE):CH0:ENABLE_RBV"
-visMin "1"
-visMax "2"
-endObjectProperties
-
 # (Text Control)
 object activeXTextDspClass
 beginObjectProperties
 major 4
 minor 7
 release 0
-x 492
-y 250
-w 72
+x 404
+y 100
+w 50
 h 19
 controlPv "$(BASE):CH0:CHARGE_INHIBIT"
 font "courier-medium-r-12.0"
@@ -598,9 +1277,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 572
-y 250
-w 72
+x 460
+y 100
+w 50
 h 19
 controlPv "$(BASE):CH0:CHARGE_INHIBIT_RBV"
 font "courier-medium-r-12.0"
@@ -622,9 +1301,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 672
-y 250
-w 72
+x 540
+y 100
+w 50
 h 19
 controlPv "$(BASE):CH0:CI_COUNTDOWN"
 font "courier-medium-r-12.0"
@@ -646,9 +1325,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 760
-y 250
-w 180
+x 600
+y 100
+w 130
 h 21
 controlPv "$(BASE):CH0:CHARGE_STATE"
 font "helvetica-medium-r-18.0"
@@ -665,33 +1344,15 @@ newPos
 objType "monitors"
 endObjectProperties
 
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 24
-y 254
-w 40
-h 10
-lineColor index 14
-fill
-fillColor index 14
-visPv "$(BASE):CH0:ENABLE_RBV"
-visMin "0"
-visMax "1"
-endObjectProperties
-
 # (Text Monitor)
 object activeXTextDspClass:noedit
 beginObjectProperties
 major 4
 minor 7
 release 0
-x 132
-y 250
-w 168
+x 128
+y 100
+w 150
 h 21
 controlPv "$(BASE):CH0:NAME"
 font "helvetica-medium-r-18.0"
@@ -713,9 +1374,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 760
-y 275
-w 180
+x 600
+y 124
+w 130
 h 20
 lineColor index 14
 fill
@@ -731,9 +1392,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 760
-y 275
-w 180
+x 600
+y 124
+w 130
 h 20
 lineColor index 14
 fill
@@ -749,9 +1410,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 760
-y 275
-w 180
+x 600
+y 124
+w 130
 h 20
 lineColor index 14
 fill
@@ -767,9 +1428,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 388
-y 275
-w 72
+x 344
+y 124
+w 50
 h 19
 controlPv "$(BASE):CH1:VOLTAGE_MEASURED"
 font "courier-medium-r-12.0"
@@ -791,9 +1452,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 308
-y 275
-w 72
+x 288
+y 124
+w 50
 h 19
 controlPv "$(BASE):CH1:VOLTAGE"
 font "courier-medium-r-12.0"
@@ -816,8 +1477,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 72
-y 275
+x 68
+y 124
 w 25
 h 18
 fgColor index 14
@@ -840,8 +1501,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 100
-y 275
+x 96
+y 124
 w 25
 h 18
 fgColor index 14
@@ -858,33 +1519,15 @@ useEnumNumeric
 font "helvetica-bold-r-12.0"
 endObjectProperties
 
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 24
-y 279
-w 40
-h 10
-lineColor index 14
-fill
-fillColor index 15
-visPv "$(BASE):CH1:ENABLE_RBV"
-visMin "1"
-visMax "2"
-endObjectProperties
-
 # (Text Control)
 object activeXTextDspClass
 beginObjectProperties
 major 4
 minor 7
 release 0
-x 492
-y 275
-w 72
+x 404
+y 124
+w 50
 h 19
 controlPv "$(BASE):CH1:CHARGE_INHIBIT"
 font "courier-medium-r-12.0"
@@ -907,9 +1550,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 572
-y 275
-w 72
+x 460
+y 124
+w 50
 h 19
 controlPv "$(BASE):CH1:CHARGE_INHIBIT_RBV"
 font "courier-medium-r-12.0"
@@ -931,9 +1574,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 672
-y 275
-w 72
+x 540
+y 124
+w 50
 h 19
 controlPv "$(BASE):CH1:CI_COUNTDOWN"
 font "courier-medium-r-12.0"
@@ -955,9 +1598,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 760
-y 275
-w 180
+x 600
+y 124
+w 130
 h 21
 controlPv "$(BASE):CH1:CHARGE_STATE"
 font "helvetica-medium-r-18.0"
@@ -974,33 +1617,15 @@ newPos
 objType "monitors"
 endObjectProperties
 
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 24
-y 279
-w 40
-h 10
-lineColor index 14
-fill
-fillColor index 14
-visPv "$(BASE):CH1:ENABLE_RBV"
-visMin "0"
-visMax "1"
-endObjectProperties
-
 # (Text Monitor)
 object activeXTextDspClass:noedit
 beginObjectProperties
 major 4
 minor 7
 release 0
-x 132
-y 275
-w 168
+x 128
+y 124
+w 150
 h 21
 controlPv "$(BASE):CH1:NAME"
 font "helvetica-medium-r-18.0"
@@ -1022,9 +1647,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 760
-y 300
-w 180
+x 600
+y 148
+w 130
 h 20
 lineColor index 14
 fill
@@ -1040,9 +1665,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 760
-y 300
-w 180
+x 600
+y 148
+w 130
 h 20
 lineColor index 14
 fill
@@ -1058,9 +1683,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 760
-y 300
-w 180
+x 600
+y 148
+w 130
 h 20
 lineColor index 14
 fill
@@ -1076,9 +1701,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 388
-y 300
-w 72
+x 344
+y 148
+w 50
 h 19
 controlPv "$(BASE):CH2:VOLTAGE_MEASURED"
 font "courier-medium-r-12.0"
@@ -1100,9 +1725,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 308
-y 300
-w 72
+x 288
+y 148
+w 50
 h 19
 controlPv "$(BASE):CH2:VOLTAGE"
 font "courier-medium-r-12.0"
@@ -1125,8 +1750,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 72
-y 300
+x 68
+y 148
 w 25
 h 18
 fgColor index 14
@@ -1149,8 +1774,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 100
-y 300
+x 96
+y 148
 w 25
 h 18
 fgColor index 14
@@ -1167,33 +1792,15 @@ useEnumNumeric
 font "helvetica-bold-r-12.0"
 endObjectProperties
 
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 24
-y 304
-w 40
-h 10
-lineColor index 14
-fill
-fillColor index 15
-visPv "$(BASE):CH2:ENABLE_RBV"
-visMin "1"
-visMax "2"
-endObjectProperties
-
 # (Text Control)
 object activeXTextDspClass
 beginObjectProperties
 major 4
 minor 7
 release 0
-x 492
-y 300
-w 72
+x 404
+y 148
+w 50
 h 19
 controlPv "$(BASE):CH2:CHARGE_INHIBIT"
 font "courier-medium-r-12.0"
@@ -1216,9 +1823,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 572
-y 300
-w 72
+x 460
+y 148
+w 50
 h 19
 controlPv "$(BASE):CH2:CHARGE_INHIBIT_RBV"
 font "courier-medium-r-12.0"
@@ -1240,9 +1847,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 672
-y 300
-w 72
+x 540
+y 148
+w 50
 h 19
 controlPv "$(BASE):CH2:CI_COUNTDOWN"
 font "courier-medium-r-12.0"
@@ -1264,9 +1871,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 760
-y 300
-w 180
+x 600
+y 148
+w 130
 h 21
 controlPv "$(BASE):CH2:CHARGE_STATE"
 font "helvetica-medium-r-18.0"
@@ -1283,33 +1890,15 @@ newPos
 objType "monitors"
 endObjectProperties
 
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 24
-y 304
-w 40
-h 10
-lineColor index 14
-fill
-fillColor index 14
-visPv "$(BASE):CH2:ENABLE_RBV"
-visMin "0"
-visMax "1"
-endObjectProperties
-
 # (Text Monitor)
 object activeXTextDspClass:noedit
 beginObjectProperties
 major 4
 minor 7
 release 0
-x 132
-y 300
-w 168
+x 128
+y 148
+w 150
 h 21
 controlPv "$(BASE):CH2:NAME"
 font "helvetica-medium-r-18.0"
@@ -1331,9 +1920,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 760
-y 325
-w 180
+x 600
+y 172
+w 130
 h 20
 lineColor index 14
 fill
@@ -1349,9 +1938,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 760
-y 325
-w 180
+x 600
+y 172
+w 130
 h 20
 lineColor index 14
 fill
@@ -1367,9 +1956,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 760
-y 325
-w 180
+x 600
+y 172
+w 130
 h 20
 lineColor index 14
 fill
@@ -1385,9 +1974,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 388
-y 325
-w 72
+x 344
+y 172
+w 50
 h 19
 controlPv "$(BASE):CH3:VOLTAGE_MEASURED"
 font "courier-medium-r-12.0"
@@ -1409,9 +1998,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 308
-y 325
-w 72
+x 288
+y 172
+w 50
 h 19
 controlPv "$(BASE):CH3:VOLTAGE"
 font "courier-medium-r-12.0"
@@ -1434,8 +2023,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 72
-y 325
+x 68
+y 172
 w 25
 h 18
 fgColor index 14
@@ -1458,8 +2047,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 100
-y 325
+x 96
+y 172
 w 25
 h 18
 fgColor index 14
@@ -1476,33 +2065,15 @@ useEnumNumeric
 font "helvetica-bold-r-12.0"
 endObjectProperties
 
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 24
-y 329
-w 40
-h 10
-lineColor index 14
-fill
-fillColor index 15
-visPv "$(BASE):CH3:ENABLE_RBV"
-visMin "1"
-visMax "2"
-endObjectProperties
-
 # (Text Control)
 object activeXTextDspClass
 beginObjectProperties
 major 4
 minor 7
 release 0
-x 492
-y 325
-w 72
+x 404
+y 172
+w 50
 h 19
 controlPv "$(BASE):CH3:CHARGE_INHIBIT"
 font "courier-medium-r-12.0"
@@ -1525,9 +2096,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 572
-y 325
-w 72
+x 460
+y 172
+w 50
 h 19
 controlPv "$(BASE):CH3:CHARGE_INHIBIT_RBV"
 font "courier-medium-r-12.0"
@@ -1549,9 +2120,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 672
-y 325
-w 72
+x 540
+y 172
+w 50
 h 19
 controlPv "$(BASE):CH3:CI_COUNTDOWN"
 font "courier-medium-r-12.0"
@@ -1573,9 +2144,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 760
-y 325
-w 180
+x 600
+y 172
+w 130
 h 21
 controlPv "$(BASE):CH3:CHARGE_STATE"
 font "helvetica-medium-r-18.0"
@@ -1592,33 +2163,15 @@ newPos
 objType "monitors"
 endObjectProperties
 
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 24
-y 329
-w 40
-h 10
-lineColor index 14
-fill
-fillColor index 14
-visPv "$(BASE):CH3:ENABLE_RBV"
-visMin "0"
-visMax "1"
-endObjectProperties
-
 # (Text Monitor)
 object activeXTextDspClass:noedit
 beginObjectProperties
 major 4
 minor 7
 release 0
-x 132
-y 325
-w 168
+x 128
+y 172
+w 150
 h 21
 controlPv "$(BASE):CH3:NAME"
 font "helvetica-medium-r-18.0"
@@ -1640,9 +2193,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 760
-y 350
-w 180
+x 600
+y 200
+w 130
 h 20
 lineColor index 14
 fill
@@ -1658,9 +2211,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 760
-y 350
-w 180
+x 600
+y 200
+w 130
 h 20
 lineColor index 14
 fill
@@ -1676,9 +2229,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 760
-y 350
-w 180
+x 600
+y 200
+w 130
 h 20
 lineColor index 14
 fill
@@ -1694,9 +2247,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 388
-y 350
-w 72
+x 344
+y 200
+w 50
 h 19
 controlPv "$(BASE):CH4:VOLTAGE_MEASURED"
 font "courier-medium-r-12.0"
@@ -1718,9 +2271,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 308
-y 350
-w 72
+x 288
+y 200
+w 50
 h 19
 controlPv "$(BASE):CH4:VOLTAGE"
 font "courier-medium-r-12.0"
@@ -1743,8 +2296,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 72
-y 350
+x 68
+y 200
 w 25
 h 18
 fgColor index 14
@@ -1767,8 +2320,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 100
-y 350
+x 96
+y 200
 w 25
 h 18
 fgColor index 14
@@ -1785,33 +2338,15 @@ useEnumNumeric
 font "helvetica-bold-r-12.0"
 endObjectProperties
 
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 24
-y 354
-w 40
-h 10
-lineColor index 14
-fill
-fillColor index 15
-visPv "$(BASE):CH4:ENABLE_RBV"
-visMin "1"
-visMax "2"
-endObjectProperties
-
 # (Text Control)
 object activeXTextDspClass
 beginObjectProperties
 major 4
 minor 7
 release 0
-x 492
-y 350
-w 72
+x 404
+y 200
+w 50
 h 19
 controlPv "$(BASE):CH4:CHARGE_INHIBIT"
 font "courier-medium-r-12.0"
@@ -1834,9 +2369,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 572
-y 350
-w 72
+x 460
+y 200
+w 50
 h 19
 controlPv "$(BASE):CH4:CHARGE_INHIBIT_RBV"
 font "courier-medium-r-12.0"
@@ -1858,9 +2393,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 672
-y 350
-w 72
+x 540
+y 200
+w 50
 h 19
 controlPv "$(BASE):CH4:CI_COUNTDOWN"
 font "courier-medium-r-12.0"
@@ -1882,9 +2417,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 760
-y 350
-w 180
+x 600
+y 200
+w 130
 h 21
 controlPv "$(BASE):CH4:CHARGE_STATE"
 font "helvetica-medium-r-18.0"
@@ -1901,33 +2436,15 @@ newPos
 objType "monitors"
 endObjectProperties
 
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 24
-y 354
-w 40
-h 10
-lineColor index 14
-fill
-fillColor index 14
-visPv "$(BASE):CH4:ENABLE_RBV"
-visMin "0"
-visMax "1"
-endObjectProperties
-
 # (Text Monitor)
 object activeXTextDspClass:noedit
 beginObjectProperties
 major 4
 minor 7
 release 0
-x 132
-y 350
-w 168
+x 128
+y 200
+w 150
 h 21
 controlPv "$(BASE):CH4:NAME"
 font "helvetica-medium-r-18.0"
@@ -1949,9 +2466,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 760
-y 375
-w 180
+x 600
+y 224
+w 130
 h 20
 lineColor index 14
 fill
@@ -1967,9 +2484,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 760
-y 375
-w 180
+x 600
+y 224
+w 130
 h 20
 lineColor index 14
 fill
@@ -1985,9 +2502,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 760
-y 375
-w 180
+x 600
+y 224
+w 130
 h 20
 lineColor index 14
 fill
@@ -2003,9 +2520,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 388
-y 375
-w 72
+x 344
+y 224
+w 50
 h 19
 controlPv "$(BASE):CH5:VOLTAGE_MEASURED"
 font "courier-medium-r-12.0"
@@ -2027,9 +2544,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 308
-y 375
-w 72
+x 288
+y 224
+w 50
 h 19
 controlPv "$(BASE):CH5:VOLTAGE"
 font "courier-medium-r-12.0"
@@ -2052,8 +2569,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 72
-y 375
+x 68
+y 224
 w 25
 h 18
 fgColor index 14
@@ -2076,8 +2593,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 100
-y 375
+x 96
+y 224
 w 25
 h 18
 fgColor index 14
@@ -2094,33 +2611,15 @@ useEnumNumeric
 font "helvetica-bold-r-12.0"
 endObjectProperties
 
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 24
-y 379
-w 40
-h 10
-lineColor index 14
-fill
-fillColor index 15
-visPv "$(BASE):CH5:ENABLE_RBV"
-visMin "1"
-visMax "2"
-endObjectProperties
-
 # (Text Control)
 object activeXTextDspClass
 beginObjectProperties
 major 4
 minor 7
 release 0
-x 492
-y 375
-w 72
+x 404
+y 224
+w 50
 h 19
 controlPv "$(BASE):CH5:CHARGE_INHIBIT"
 font "courier-medium-r-12.0"
@@ -2143,9 +2642,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 572
-y 375
-w 72
+x 460
+y 224
+w 50
 h 19
 controlPv "$(BASE):CH5:CHARGE_INHIBIT_RBV"
 font "courier-medium-r-12.0"
@@ -2167,9 +2666,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 672
-y 375
-w 72
+x 540
+y 224
+w 50
 h 19
 controlPv "$(BASE):CH5:CI_COUNTDOWN"
 font "courier-medium-r-12.0"
@@ -2191,9 +2690,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 760
-y 375
-w 180
+x 600
+y 224
+w 130
 h 21
 controlPv "$(BASE):CH5:CHARGE_STATE"
 font "helvetica-medium-r-18.0"
@@ -2210,33 +2709,15 @@ newPos
 objType "monitors"
 endObjectProperties
 
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 24
-y 379
-w 40
-h 10
-lineColor index 14
-fill
-fillColor index 14
-visPv "$(BASE):CH5:ENABLE_RBV"
-visMin "0"
-visMax "1"
-endObjectProperties
-
 # (Text Monitor)
 object activeXTextDspClass:noedit
 beginObjectProperties
 major 4
 minor 7
 release 0
-x 132
-y 375
-w 168
+x 128
+y 224
+w 150
 h 21
 controlPv "$(BASE):CH5:NAME"
 font "helvetica-medium-r-18.0"
@@ -2258,9 +2739,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 760
-y 400
-w 180
+x 600
+y 248
+w 130
 h 20
 lineColor index 14
 fill
@@ -2276,9 +2757,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 760
-y 400
-w 180
+x 600
+y 248
+w 130
 h 20
 lineColor index 14
 fill
@@ -2294,9 +2775,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 760
-y 400
-w 180
+x 600
+y 248
+w 130
 h 20
 lineColor index 14
 fill
@@ -2312,9 +2793,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 388
-y 400
-w 72
+x 344
+y 248
+w 50
 h 19
 controlPv "$(BASE):CH6:VOLTAGE_MEASURED"
 font "courier-medium-r-12.0"
@@ -2336,9 +2817,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 308
-y 400
-w 72
+x 288
+y 248
+w 50
 h 19
 controlPv "$(BASE):CH6:VOLTAGE"
 font "courier-medium-r-12.0"
@@ -2361,8 +2842,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 72
-y 400
+x 68
+y 248
 w 25
 h 18
 fgColor index 14
@@ -2385,8 +2866,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 100
-y 400
+x 96
+y 248
 w 25
 h 18
 fgColor index 14
@@ -2403,33 +2884,15 @@ useEnumNumeric
 font "helvetica-bold-r-12.0"
 endObjectProperties
 
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 24
-y 404
-w 40
-h 10
-lineColor index 14
-fill
-fillColor index 15
-visPv "$(BASE):CH6:ENABLE_RBV"
-visMin "1"
-visMax "2"
-endObjectProperties
-
 # (Text Control)
 object activeXTextDspClass
 beginObjectProperties
 major 4
 minor 7
 release 0
-x 492
-y 400
-w 72
+x 404
+y 248
+w 50
 h 19
 controlPv "$(BASE):CH6:CHARGE_INHIBIT"
 font "courier-medium-r-12.0"
@@ -2452,9 +2915,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 572
-y 400
-w 72
+x 460
+y 248
+w 50
 h 19
 controlPv "$(BASE):CH6:CHARGE_INHIBIT_RBV"
 font "courier-medium-r-12.0"
@@ -2476,9 +2939,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 672
-y 400
-w 72
+x 540
+y 248
+w 50
 h 19
 controlPv "$(BASE):CH6:CI_COUNTDOWN"
 font "courier-medium-r-12.0"
@@ -2500,9 +2963,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 760
-y 400
-w 180
+x 600
+y 248
+w 130
 h 21
 controlPv "$(BASE):CH6:CHARGE_STATE"
 font "helvetica-medium-r-18.0"
@@ -2519,33 +2982,15 @@ newPos
 objType "monitors"
 endObjectProperties
 
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 24
-y 404
-w 40
-h 10
-lineColor index 14
-fill
-fillColor index 14
-visPv "$(BASE):CH6:ENABLE_RBV"
-visMin "0"
-visMax "1"
-endObjectProperties
-
 # (Text Monitor)
 object activeXTextDspClass:noedit
 beginObjectProperties
 major 4
 minor 7
 release 0
-x 132
-y 400
-w 168
+x 128
+y 248
+w 150
 h 21
 controlPv "$(BASE):CH6:NAME"
 font "helvetica-medium-r-18.0"
@@ -2567,9 +3012,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 760
-y 425
-w 180
+x 600
+y 272
+w 130
 h 20
 lineColor index 14
 fill
@@ -2585,9 +3030,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 760
-y 425
-w 180
+x 600
+y 272
+w 130
 h 20
 lineColor index 14
 fill
@@ -2603,9 +3048,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 760
-y 425
-w 180
+x 600
+y 272
+w 130
 h 20
 lineColor index 14
 fill
@@ -2621,9 +3066,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 388
-y 425
-w 72
+x 344
+y 272
+w 50
 h 19
 controlPv "$(BASE):CH7:VOLTAGE_MEASURED"
 font "courier-medium-r-12.0"
@@ -2645,9 +3090,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 308
-y 425
-w 72
+x 288
+y 272
+w 50
 h 19
 controlPv "$(BASE):CH7:VOLTAGE"
 font "courier-medium-r-12.0"
@@ -2670,8 +3115,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 72
-y 425
+x 68
+y 272
 w 25
 h 18
 fgColor index 14
@@ -2694,8 +3139,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 100
-y 425
+x 96
+y 272
 w 25
 h 18
 fgColor index 14
@@ -2712,33 +3157,15 @@ useEnumNumeric
 font "helvetica-bold-r-12.0"
 endObjectProperties
 
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 24
-y 429
-w 40
-h 10
-lineColor index 14
-fill
-fillColor index 15
-visPv "$(BASE):CH7:ENABLE_RBV"
-visMin "1"
-visMax "2"
-endObjectProperties
-
 # (Text Control)
 object activeXTextDspClass
 beginObjectProperties
 major 4
 minor 7
 release 0
-x 492
-y 425
-w 72
+x 404
+y 272
+w 50
 h 19
 controlPv "$(BASE):CH7:CHARGE_INHIBIT"
 font "courier-medium-r-12.0"
@@ -2761,9 +3188,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 572
-y 425
-w 72
+x 460
+y 272
+w 50
 h 19
 controlPv "$(BASE):CH7:CHARGE_INHIBIT_RBV"
 font "courier-medium-r-12.0"
@@ -2785,9 +3212,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 672
-y 425
-w 72
+x 540
+y 272
+w 50
 h 19
 controlPv "$(BASE):CH7:CI_COUNTDOWN"
 font "courier-medium-r-12.0"
@@ -2809,9 +3236,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 760
-y 425
-w 180
+x 600
+y 272
+w 130
 h 21
 controlPv "$(BASE):CH7:CHARGE_STATE"
 font "helvetica-medium-r-18.0"
@@ -2828,33 +3255,15 @@ newPos
 objType "monitors"
 endObjectProperties
 
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 24
-y 429
-w 40
-h 10
-lineColor index 14
-fill
-fillColor index 14
-visPv "$(BASE):CH7:ENABLE_RBV"
-visMin "0"
-visMax "1"
-endObjectProperties
-
 # (Text Monitor)
 object activeXTextDspClass:noedit
 beginObjectProperties
 major 4
 minor 7
 release 0
-x 132
-y 425
-w 168
+x 128
+y 272
+w 150
 h 21
 controlPv "$(BASE):CH7:NAME"
 font "helvetica-medium-r-18.0"
@@ -2876,9 +3285,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 760
-y 450
-w 180
+x 600
+y 300
+w 130
 h 20
 lineColor index 14
 fill
@@ -2894,9 +3303,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 760
-y 450
-w 180
+x 600
+y 300
+w 130
 h 20
 lineColor index 14
 fill
@@ -2912,9 +3321,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 760
-y 450
-w 180
+x 600
+y 300
+w 130
 h 20
 lineColor index 14
 fill
@@ -2930,9 +3339,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 388
-y 450
-w 72
+x 344
+y 300
+w 50
 h 19
 controlPv "$(BASE):CH8:VOLTAGE_MEASURED"
 font "courier-medium-r-12.0"
@@ -2954,9 +3363,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 308
-y 450
-w 72
+x 288
+y 300
+w 50
 h 19
 controlPv "$(BASE):CH8:VOLTAGE"
 font "courier-medium-r-12.0"
@@ -2979,8 +3388,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 72
-y 450
+x 68
+y 300
 w 25
 h 18
 fgColor index 14
@@ -3003,8 +3412,8 @@ beginObjectProperties
 major 4
 minor 1
 release 0
-x 100
-y 450
+x 96
+y 300
 w 25
 h 18
 fgColor index 14
@@ -3021,33 +3430,15 @@ useEnumNumeric
 font "helvetica-bold-r-12.0"
 endObjectProperties
 
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 24
-y 454
-w 40
-h 10
-lineColor index 14
-fill
-fillColor index 15
-visPv "$(BASE):CH8:ENABLE_RBV"
-visMin "1"
-visMax "2"
-endObjectProperties
-
 # (Text Control)
 object activeXTextDspClass
 beginObjectProperties
 major 4
 minor 7
 release 0
-x 492
-y 450
-w 72
+x 404
+y 300
+w 50
 h 19
 controlPv "$(BASE):CH8:CHARGE_INHIBIT"
 font "courier-medium-r-12.0"
@@ -3070,9 +3461,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 572
-y 450
-w 72
+x 460
+y 300
+w 50
 h 19
 controlPv "$(BASE):CH8:CHARGE_INHIBIT_RBV"
 font "courier-medium-r-12.0"
@@ -3094,9 +3485,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 672
-y 450
-w 72
+x 540
+y 300
+w 50
 h 19
 controlPv "$(BASE):CH8:CI_COUNTDOWN"
 font "courier-medium-r-12.0"
@@ -3118,9 +3509,9 @@ beginObjectProperties
 major 4
 minor 7
 release 0
-x 760
-y 450
-w 180
+x 600
+y 300
+w 130
 h 21
 controlPv "$(BASE):CH8:CHARGE_STATE"
 font "helvetica-medium-r-18.0"
@@ -3137,33 +3528,15 @@ newPos
 objType "monitors"
 endObjectProperties
 
-# (Rectangle)
-object activeRectangleClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 24
-y 454
-w 40
-h 10
-lineColor index 14
-fill
-fillColor index 14
-visPv "$(BASE):CH8:ENABLE_RBV"
-visMin "0"
-visMax "1"
-endObjectProperties
-
 # (Text Monitor)
 object activeXTextDspClass:noedit
 beginObjectProperties
 major 4
 minor 7
 release 0
-x 132
-y 450
-w 168
+x 128
+y 300
+w 150
 h 21
 controlPv "$(BASE):CH8:NAME"
 font "helvetica-medium-r-18.0"
@@ -3185,8 +3558,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 828
-y 224
+x 644
+y 72
 w 36
 h 20
 font "helvetica-bold-r-12.0"
@@ -3204,8 +3577,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 24
-y 44
+x 20
+y 40
 w 40
 h 10
 lineColor index 14
@@ -3222,8 +3595,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 24
-y 68
+x 168
+y 40
 w 40
 h 10
 lineColor index 14
@@ -3240,8 +3613,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 24
-y 96
+x 324
+y 40
 w 40
 h 10
 lineColor index 14
@@ -3258,8 +3631,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 24
-y 156
+x 624
+y 40
 w 40
 h 10
 lineColor index 14
@@ -3269,5 +3642,97 @@ fillAlarm
 visPv "$(BASE):CHARGE_OK"
 visMin "0"
 visMax "1"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 788
+y 72
+w 40
+h 20
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Status"
+}
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 524
+y 36
+w 60
+h 20
+fgColor index 14
+onColor index 4
+offColor index 4
+topShadowColor index 1
+botShadowColor index 11
+onLabel "Fault"
+offLabel "Fault"
+3d
+useEnumNumeric
+font "helvetica-bold-r-12.0"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 472
+y 40
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 15
+fillAlarm
+visPv "CALC\\\{(A=2)&&!(B=0)\}($(BASE):MODE_RBV,$(BASE):MODE_OK)"
+visMin "1"
+visMax "2"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 472
+y 40
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 14
+visPv "CALC\\\{(A=2)&&!(B=0)\}($(BASE):MODE_RBV,$(BASE):MODE_OK)"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 612
+y 8
+w 292
+h 56
+lineColor index 14
+fillColor index 0
 endObjectProperties
 
