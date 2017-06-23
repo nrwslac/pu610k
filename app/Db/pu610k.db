@@ -69,14 +69,22 @@ record(calc, "$(BASE):$(CHAN):MODE_ALLOW") {
     field(CALC, "((A==0)||(B!=0))&&(A>=0)&&(A<=2)") 
 }
 
-record(longout, "$(BASE):$(CHAN):MODE_SET") {
-    field(DESC, "PU610K Operating Mode")
-    field(OMSL, "closed_loop")
+record(mbbo,    "$(BASE):$(CHAN):MODE_SET") {
+    field(DESC, "PU610K Mode")
     field(DTYP, "stream")
+    field(OMSL, "closed_loop")
     field(DOL,  "$(BASE):$(CHAN):MODE")
     field(OUT,  "@pu610k.proto ModeSet $(PORT)")
     field(SDIS, "$(BASE):$(CHAN):MODE_ALLOW NPP")
     field(DISV, "0")
+    field(ZRVL, "0")
+    field(ONVL, "1")
+    field(TWVL, "2")
+    field(THVL, "0")         # NO THREE!!!
+    field(FRVL, "0")         # I suppose we *could* write fault, but why?
+    field(ZRST, "Stop")
+    field(ONST, "Standby")
+    field(TWST, "Flash")
     field(FLNK, "$(BASE):$(CHAN):MODE_RBV")
 }
 
@@ -93,18 +101,24 @@ record(longin,   "$(BASE):$(CHAN):MODE_RBV") {
     field(HSV,   "MINOR")
     field(HHSV,  "MAJOR")
     field(SCAN,  "1 second")                   # Do we need to scan this?!?
-    field(FLNK,  "$(BASE):$(CHAN):MODE_IS_READY")
-}
-
-record(calc,    "$(BASE):$(CHAN):MODE_IS_READY") {
-    field(INPA, "$(BASE):$(CHAN):MODE_RBV")
-    field(CALC, "(A==2)?1:0")
-    field(FLNK, "$(BASE):$(CHAN):MODE_IS_STOP")
+    field(FLNK,  "$(BASE):$(CHAN):MODE_IS_STOP")
 }
 
 record(calc, "$(BASE):$(CHAN):MODE_IS_STOP") {
     field(INPA, "$(BASE):$(CHAN):MODE_RBV")
     field(CALC, "(A==0)?1:0")
+    field(FLNK, "$(BASE):$(CHAN):MODE_IS_STANDBY")
+}
+
+record(calc,    "$(BASE):$(CHAN):MODE_IS_STANDBY") {
+    field(INPA, "$(BASE):$(CHAN):MODE_RBV")
+    field(CALC, "(A==1)?1:0")
+    field(FLNK, "$(BASE):$(CHAN):MODE_IS_READY")
+}
+
+record(calc,    "$(BASE):$(CHAN):MODE_IS_READY") {
+    field(INPA, "$(BASE):$(CHAN):MODE_RBV")
+    field(CALC, "(A==2)?1:0")
     field(FLNK, "$(BASE):$(CHAN):MODE_IS_FAULT")
 }
 
@@ -115,6 +129,15 @@ record(calc, "$(BASE):$(CHAN):MODE_IS_FAULT") {
 
 record(calcout, "$(BASE):$(CHAN):MODE_STOPPING") {
     field(INPA, "$(BASE):$(CHAN):MODE_IS_STOP CPP")
+    field(CALC, "A")
+    field(OOPT, "Transition To Non-zero")
+    field(DOPT, "Use OCAL")
+    field(OCAL, "0")
+    field(OUT, "$(BASE):$(CHAN):STOP_NOW PP")
+}
+
+record(calcout, "$(BASE):$(CHAN):MODE_STANDBYING") {
+    field(INPA, "$(BASE):$(CHAN):MODE_IS_STANDBY CPP")
     field(CALC, "A")
     field(OOPT, "Transition To Non-zero")
     field(DOPT, "Use OCAL")
@@ -258,6 +281,7 @@ record(calcout, "$(BASE):$(CHAN):CHECK_SHOT") {
     field(DOPT, "Use OCAL")
     field(OCAL, "0")
     field(OUT, "$(BASE):$(CHAN):CHARGE_STATE PP")
+    field(FLNK, "$(BASE):$(CHAN):SAVE_SHOT")
 }
 
 record(longin, "$(BASE):$(CHAN):SAVE_SHOT") {
@@ -330,16 +354,39 @@ record(calc,    "$(BASE):$(CHAN):CS_NOT_CHARGING") {
     field(CALC, "(A==0)?1:0")
 }
 
-record(mbbo,    "$(BASE):$(CHAN):FLASH_MODE") {
+record(mbbi,    "$(BASE):$(CHAN):GET_FLASH_MODE") {
+    field(DESC, "PU610K Flashing Mode")
+    field(DTYP, "stream")
+    field(INP,  "@pu610k.proto FlashModeGet $(PORT)")
+    field(ZRVL, "7")
+    field(ONVL, "3")
+    field(ZRST, "Manual")
+    field(ONST, "Auto")
+    field(PINI, "YES")
+    field(FLNK, "$(BASE):$(CHAN):FLASH_MODE_OK")
+}
+
+record(calc,    "$(BASE):$(CHAN):FLASH_MODE_OK") {
+    field(INPA, "$(BASE):$(CHAN):GET_FLASH_MODE")
+    field(INPB, "$(BASE):AUTO_FLASH_ON")
+    field(CALC, "A==B")
+    field(LOW,  "0")
+    field(LSV,  "MAJOR")
+    field(PINI, "YES")
+    field(SCAN, "1 second")
+}
+
+record(mbbo,    "$(BASE):$(CHAN):SET_FLASH_MODE") {
     field(DESC, "PU610K Flashing Mode")
     field(DTYP, "stream")
     field(OUT,  "@pu610k.proto FlashModeSet $(PORT)")
-    field(OMSL, "supervisory")
-    field(ZRVL, "3")
-    field(ONVL, "7")
-    field(ZRST, "Auto")
-    field(ONST, "Manual")
-    field(SDIS, "$(BASE):MODE_IS_STOP")
+    field(OMSL, "closed_loop")
+    field(DOL, "$(BASE):AUTO_FLASH_ON")
+    field(ZRVL, "7")
+    field(ONVL, "3")
+    field(ZRST, "Manual")
+    field(ONST, "Auto")
+    field(SDIS, "$(BASE):MODE_IS_STOP")		# Only change mode in MD,0.
     field(DISV, "0")
     field(FLNK, "$(BASE):$(CHAN):REBOOT")
 }
@@ -349,7 +396,7 @@ record(longout, "$(BASE):$(CHAN):REBOOT") {
     field(DTYP, "stream")
     field(OUT,  "@pu610k.proto Reboot $(PORT)")
     field(OMSL, "supervisory")
-    field(FLNK, "$(BASE):$(CHAN):REINIT")
+#    field(FLNK, "$(BASE):$(CHAN):REINIT")
 }
 
 ## Put a delay here?
@@ -359,6 +406,7 @@ record(longout, "$(BASE):$(CHAN):REINIT") {
     field(DTYP, "stream")
     field(OUT,  "@pu610k.proto Initialization $(PORT)")
     field(OMSL, "supervisory")
+    field(FLNK, "$(BASE):$(CHAN):GET_FLASH_MODE")
 }
 
 record(stringin, "$(BASE):$(CHAN):RAW_ERROR") {

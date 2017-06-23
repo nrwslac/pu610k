@@ -125,3 +125,109 @@ record(dfanout, "$(BASE):START_CHARGE2") {
     field(SELM, "All")
     field(OUTA, "$(BASE):CH8:START_CHARGE PP")
 }
+
+record(bo,    "$(BASE):AUTO_FLASH_ON") {
+    field(DESC, "PU610K Flashing Mode")
+    field(ZNAM, "Manual")
+    field(ONAM, "Auto")
+    field(VAL,  "0")
+}
+
+record(dfanout, "$(BASE):FLASH_SET") {
+    field(DESC, "PU610K Operating Mode")
+    field(OMSL, "closed_loop")
+    field(DOL,  "$(BASE):AUTO_FLASH_ON")
+    field(SELM, "All")
+    field(OUTA, "$(BASE):CH0:SET_FLASH_MODE PP")
+    field(OUTB, "$(BASE):CH1:SET_FLASH_MODE PP")
+    field(OUTC, "$(BASE):CH2:SET_FLASH_MODE PP")
+    field(OUTD, "$(BASE):CH3:SET_FLASH_MODE PP")
+    field(OUTE, "$(BASE):CH4:SET_FLASH_MODE PP")
+    field(OUTF, "$(BASE):CH5:SET_FLASH_MODE PP")
+    field(OUTG, "$(BASE):CH6:SET_FLASH_MODE PP")
+    field(OUTH, "$(BASE):CH7:SET_FLASH_MODE PP")
+    field(SDIS, "$(BASE):MODE_IS_STOP")
+    field(DISV, "0")
+    field(FLNK, "$(BASE):FLASH_MODE_SET2")
+}
+
+record(dfanout, "$(BASE):FLASH_MODE_SET2") {
+    field(DESC, "PU610K Operating Mode")
+    field(OMSL, "closed_loop")
+    field(DOL,  "$(BASE):AUTO_FLASH_ON")
+    field(SELM, "All")
+    field(OUTA, "$(BASE):CH8:SET_FLASH_MODE PP")
+    field(FLNK, "$(BASE):MODE_IS_STOP")
+}
+
+record(calc,    "$(BASE):FLASH_MODE_OK") {
+    field(INPA, "$(BASE):CH0:FLASH_MODE_OK CPP")
+    field(INPB, "$(BASE):CH1:FLASH_MODE_OK CPP")
+    field(INPC, "$(BASE):CH2:FLASH_MODE_OK CPP")
+    field(INPD, "$(BASE):CH3:FLASH_MODE_OK CPP")
+    field(INPE, "$(BASE):CH4:FLASH_MODE_OK CPP")
+    field(INPF, "$(BASE):CH5:FLASH_MODE_OK CPP")
+    field(INPG, "$(BASE):CH6:FLASH_MODE_OK CPP")
+    field(INPH, "$(BASE):CH7:FLASH_MODE_OK CPP")
+    field(INPI, "$(BASE):CH8:FLASH_MODE_OK CPP")
+    field(CALC, "A&B&C&D&E&F&G&H&I")
+    field(PINI, "YES")
+}
+
+record(calc,    "$(BASE):REBOOT_OK") {
+    field(INPA, "$(BASE):FLASH_MODE_OK CPP")
+    field(INPB, "$(BASE):MODE_IS_STOP CPP")
+    field(CALC, "(A==0)&&(B!=0)")
+}
+
+record(longin, "$(BASE):LASTSHOTCNT") {
+    field(DESC, "PU610K Last Shot Count")
+    field(INP,  "$(BASE):SHOTCNT")
+}
+
+record(calcout,  "$(BASE):SHOTCHANGE") {
+    field(INPA, "$(BASE):SHOTCNT")
+    field(INPB, "$(BASE):LASTSHOTCNT")
+    field(CALC, "A == B")
+    field(OOPT, "Transition To Zero")
+    field(DOPT, "Use OCAL")
+    field(OCAL, "0")
+    field(OUT, "$(BASE):SINCESHOTSEC.VAL")
+    field(FLNK, "$(BASE):LASTSHOTCNT")
+}
+
+record(calc,    "$(BASE):SHOTCNT") {
+    field(INPA, "$(BASE):CH0:SHOTCNT")
+    field(INPB, "$(BASE):CH1:SHOTCNT")
+    field(INPC, "$(BASE):CH2:SHOTCNT")
+    field(INPD, "$(BASE):CH3:SHOTCNT")
+    field(INPE, "$(BASE):CH4:SHOTCNT")
+    field(INPF, "$(BASE):CH5:SHOTCNT")
+    field(INPG, "$(BASE):CH6:SHOTCNT")
+    field(INPH, "$(BASE):CH7:SHOTCNT")
+    field(INPI, "$(BASE):CH8:SHOTCNT")
+    field(CALC, "A+B+C+D+E+F+G+H+I")
+    field(PINI, "YES")
+    field(SCAN, "1 second")
+    field(FLNK, "$(BASE):SHOTCHANGE")
+}
+
+record(calc,    "$(BASE):SINCESHOTSEC") {
+    field(INPA, "$(BASE):SINCESHOTSEC.VAL")
+    field(CALC, "A+1")
+    field(SCAN, "1 second")
+    field(FLNK, "$(BASE):SSPROC")
+}
+
+record(aSub, "$(BASE):SSPROC") {
+    field(INAM, "PU610KTimeInit")
+    field(SNAM, "PU610KTimeParse")
+    field(FTA,  "LONG")
+    field(INPA, "$(BASE):SINCESHOTSEC.VAL")
+    field(FTVA, "STRING")
+    field(OUTA, "$(BASE):SINCESHOT PP")
+}
+
+record(stringout, "$(BASE):SINCESHOT") {
+    field(DESC, "Time since last shot")
+}

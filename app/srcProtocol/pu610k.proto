@@ -1,41 +1,44 @@
-InTerminator  = CR LF;
+InTerminator  = CR LF ":";
 OutTerminator = CR LF;
-ReplyTimeout  =  800;
-ReadTimeout   =  100;
-WriteTimeout  =  100;
+ReplyTimeout  =  5000;
+ReadTimeout   =  5000;
+WriteTimeout  =  1000;
 ExtraInput    = Ignore;
 
 # Password PW,LASER, in PW
 # Verbose: VB,0, in VB,0
-Initialization   { out ":PW,LASER\r\n:VB,0"; in "%*s"; in "%*s"; }
+Initialization   { out "PW,LASER"; in "%*10c"; in "PW"; out "VB,0"; in "%*10c"; in "VB,0"; }
 
-ModeSet          { out ":MD,%d"; in ":MD,%*d%*s"; }   # 0, 1, 2, 4.  If 4, we actually have MD,4,04??.0
-ModeGet          { out ":MD"; in ":MD,%d"; }
+ModeSet          { out "MD,%d"; in "%*10c"; in "MD,%*d"; }   # 0, 1, 2, 4.  
+ModeGet          { out "MD"; in "%*10c"; in "MD,%d%*10c"; }  # If 4, we actually have MD,4,04??.0
 
 # These are set the same!!
-ChargeDeferSet   { out ":CD,%d"; in ":CD,%*d"; }   # 1-32767 sec           
-ChargeDeferGet   { out ":CD"; in ":CD,%d"; }       # sec
-ChargeInhibitSet { out ":CI,%d"; in ":CI,%*d"; }   # 1-32767 sec: return seconds, remaining seconds.
-ChargeInhibitGet { out ":CI"; in ":CI,%d,%*d"; }   # seconds, remaining seconds  (Read during MD,2)
-CICountdownGet   { in ":CI,%*d,%d"; }
+ChargeDeferSet   { out "CD,%d"; in "%*10c"; in "CD,%*d"; }   # 1-32767 sec           
+ChargeDeferGet   { out "CD"; in "%*10c"; in "CD,%d,%*d"; }   # sec
+ChargeInhibitSet { out "CI,%d"; in "%*10c"; in "CI,%*d"; }   # 1-32767 sec: return seconds, remaining seconds.
+ChargeInhibitGet { out "CI"; in "%*10c"; in "CI,%d,%*d"; }   # seconds, remaining seconds  (Read during MD,2)
+CICountdownGet   { in "CI,%*d,%d"; }
 
-ChargeSet        { out ":CH,1";  in ":CH,%*d"; }   # Or CH,! if the command is rejected.
-ChargeDone       { out ":CH";  in ":CH,EOC%d"; }
+ChargeSet        { out "CH,1";  in "%*10c"; in "CH,%*d"; }   # Or CH,! if rejected.
+ChargeDone       { out "CH";  in "%*10c"; in "CH,EOC%d"; }
 
-HighVoltageGet   { out ":HV"; in ":HV,%d"; @mismatch { in ":HV!%*s"; }}       # measured volts (during MD,2)
+HighVoltageGet   { out "HV"; in "%*10c"; in "HV,%d"; @mismatch { in "HV!%*s"; }} # measured volts (during MD,2)
 
-FlashModeSet     { out ":PF,%d"; in ":PF,%*d"; }   # 3=Auto, 7=Manual. Requires reboot after setting
-FlashModeGet     { in ":PF,%d"; }                  # 3=Auto, 7=Manual.
-Reboot		 { out ":RB"; }                    # Must be in MD 0
+FlashModeSet     { out "PF,%d"; in "%*10c"; in "PF,%*d"; }   # 3=Auto, 7=Manual. Requires reboot after setting
+FlashModeGet     { out "PF"; in "%*10c"; in "PF,%d"; }       # 3=Auto, 7=Manual.
+Reboot		 { out "RB"; in "%*10c"; in "RB"; 
+		   in "%*30c"; in "%*30c";
+	           in "%*30c"; in "%*30c"; in "%*30c"; in "%*30c";
+		   in "%*30c"; in "%*30c"; in "%*30c"; in "%*30c"; } # Must be in MD 0
 
-VoltageSet       { out ":VS,%d"; in ":VS,%*d"; }
-VoltageGet       { out ":VS"; in ":VS,%d"; }
+VoltageSet       { out "VS,%d"; in "%*10c"; in "VS,%*d"; }
+VoltageGet       { out "VS"; in "%*10c"; in "VS,%d"; }
 
-ErrorGet         { out ":ER,"; in ":ER,%80c"; }
+ErrorGet         { out "ER,"; in "%*10c"; in "ER,%80c"; }
 
-WatchdogSet      { out ":WD,%d"; in ":WD,%*d"; }
-WatchdogGet      { out ":WD"; in ":WD,%*d"; }
+WatchdogSet      { out "WD,%d"; in "%*10c"; in "WD,%*d"; }
+WatchdogGet      { out "WD"; in "%*10c"; in "WD,%*d"; }
 
 # state (see appendix 1), shutter state, interlocks, flashcnt, Qshot cnt
-ListAllGet       { out ":LE"; in ":LE,%x,%*d,%*x,%*x,%*x"; }
-ShotCntGet       { in ":LE,%*x,%*d,%*x,%x,%*x"; }
+ListAllGet       { out "LE"; in "%*10c"; in "LE,%x,%*d,%*x,%*x,%*x"; }
+ShotCntGet       { in "LE,%*x,%*d,%*x,%x,%*x"; }

@@ -96,26 +96,24 @@ void simulate(void)
             buf[len--] = 0;
         if (buf[len] == '\r')
             buf[len--] = 0;
-        if (buf[0] != ':') {
-            fprintf(stderr, "Bad command: %s\n", buf);
-        } else  if (buf[1] == 'E' && buf[2] == 'R') { /* Actually, assumes "ER," */
+        if (buf[0] == 'E' && buf[1] == 'R') { /* Actually, assumes "ER," */
             if (haserror) {
-                printf(":ER,13,008E,External interlock\r\n");
+                printf("\r\n:ER,13,008E,External interlock\r\n:");
                 fprintf(stderr, "Simulated error\n");
             } else {
-                printf(":ER,OK,000E\r\n");
+                printf("\r\n:ER,OK,000E\r\n:");
                 fprintf(stderr, "No error\n");
             }
-        } else  if (buf[1] == 'P' && buf[2] == 'W') {
-            admin = !strcmp(buf, ":PW,LASER");
+        } else  if (buf[0] == 'P' && buf[1] == 'W') {
+            admin = !strcmp(buf, "PW,LASER");
             fprintf(stderr, "PW admin = %d\n", admin);
-            printf(":PW\r\n"); 
-        } else if (buf[1] == 'M' && buf[2] == 'D') {
-            if (buf[3] == ',') {
-                int newmode = atoi(buf + 4);
+            printf("\r\n:PW\r\n:"); 
+        } else if (buf[0] == 'M' && buf[1] == 'D') {
+            if (buf[2] == ',') {
+                int newmode = atoi(buf + 3);
                 if (newmode < 0 || newmode > 2 || (newmode == 2 && mode == 0) || (mode == 4 && newmode != 0)) {
                     fprintf(stderr, "Illegal new mode: %s\n", buf);
-                    printf(":MD,!\r\n");
+                    printf("\r\n:MD,!\r\n:");
                 } else {
                     mode = haserror ? 4 : newmode;
                     if (mode == 2) {
@@ -125,36 +123,36 @@ void simulate(void)
                         fprintf(stderr, "mode %d\n", mode);
                         charging = 0;
                     }
-                    printf(":MD,%d\r\n", mode);
+                    printf("\r\n:MD,%d\r\n:", mode);
                 }
             } else {
                 fprintf(stderr, "mode %d\n", mode);
-                printf(":MD,%d\r\n", mode);
+                printf("\r\n:MD,%d\r\n:", mode);
             }
-        } else if (buf[1] == 'C' && buf[2] == 'D') {
-            if (buf[3] == ',') {
-                int newval = atoi(buf + 4);
+        } else if (buf[0] == 'C' && buf[1] == 'D') {
+            if (buf[2] == ',') {
+                int newval = atoi(buf + 3);
                 if (newval < 1 || newval > 32767) {
                     fprintf(stderr, "Illegal new charge defer: %s\n", buf);
-                    printf(":CD,!\r\n");
+                    printf("\r\n:CD,!\r\n:");
                 } else {
                     cd = newval;
-                    printf(":CD,%d\r\n", cd);
+                    printf("\r\n:CD,%d\r\n:", cd);
                     fprintf(stderr, "charge defer %d\n", cd);
                 }
             } else {
-                printf(":CD,%d\r\n", cd);
+                printf("\r\n:CD,%d,-1\r\n:", cd);
                 fprintf(stderr, "charge defer %d\n", cd);
             }
-        } else if (buf[1] == 'C' && buf[2] == 'I') {
-            if (buf[3] == ',') {
-                int newval = atoi(buf + 4);
+        } else if (buf[0] == 'C' && buf[1] == 'I') {
+            if (buf[2] == ',') {
+                int newval = atoi(buf + 3);
                 if (newval < 1 || newval > 32767) {
                     fprintf(stderr, "Illegal new charge inhibit: %s\n", buf);
-                    printf(":CI,!\r\n");
+                    printf("\r\n:CI,!\r\n:");
                 } else {
                     ci = newval;
-                    printf(":CI,%d\r\n", ci);
+                    printf("\r\n:CI,%d\r\n:", ci);
                     fprintf(stderr, "charge inhibit %d\n", ci);
                 }
             } else {
@@ -164,43 +162,43 @@ void simulate(void)
                     len = 0;
                 else
                     len = ci - len;
-                printf(":CI,%d,%d\r\n", ci, len);
+                printf("\r\n:CI,%d,%d\r\n:", ci, len);
                 fprintf(stderr, "charge inhibit countdown from %d: %d @%ld\n", ci, len, now);
             }
-        } else if (buf[1] == 'C' && buf[2] == 'H') {
-            if (buf[3] == ',') {
+        } else if (buf[0] == 'C' && buf[1] == 'H') {
+            if (buf[2] == ',') {
                 now = time(0);
-                if (mode != 2 || now - m2_time <= 5 || now - ci_time <= ci || buf[4] != '1') {
+                if (mode != 2 || now - m2_time <= 5 || now - ci_time <= ci || buf[3] != '1') {
                     fprintf(stderr, "Cannot charge yet!\n");
-                    printf(":CH,!\r\n");
+                    printf("\r\n:CH,!\r\n:");
                 } else {
                     charging = 1;
                     ch_time = now;
-                    printf(":CH,1\r\n");
+                    printf("\r\n:CH,1\r\n:");
                     fprintf(stderr, "Started charging @%ld\n", now);
                 }
             } else {
                 now = time(0);
                 if (charging && now > ch_time + ct) {
-                    printf(":CH,EOC1\r\n");
+                    printf("\r\n:CH,EOC1\r\n:");
                     fprintf(stderr, "Fully charged @%ld\n", now);
                 } else {
-                    printf(":CH,EOC0\r\n");
+                    printf("\r\n:CH,EOC0\r\n:");
                     fprintf(stderr, "Not fully charged.\n");
                 }
             }
-        } else if (buf[1] == 'V' && buf[2] == 'S') {
-            if (buf[3] == ',') {
-                voltage = atoi(buf + 4);
-                printf(":VS,%d\r\n", voltage);
+        } else if (buf[0] == 'V' && buf[1] == 'S') {
+            if (buf[2] == ',') {
+                voltage = atoi(buf + 3);
+                printf("\r\n:VS,%d\r\n:", voltage);
                 fprintf(stderr, "Set voltage to %d\n", voltage);
             } else {
-                printf(":VS,%d\r\n", voltage);
+                printf("\r\n:VS,%d\r\n:", voltage);
                 fprintf(stderr, "Voltage is set to %d\n", voltage);
             }
-        } else if (buf[1] == 'H' && buf[2] == 'V') {
+        } else if (buf[0] == 'H' && buf[1] == 'V') {
             if (mode != 2) {
-                printf(":HV! not flashing.\r\n");
+                printf("\r\n:HV! not flashing.\r\n:");
                 fprintf(stderr, "HV not flashing!\n");
             } else if (charging == 1) {
                 now = time(0);
@@ -209,33 +207,33 @@ void simulate(void)
                 } else {
                     len = voltage * (now - ch_time) / ct  + (random() % 11) - 5;
                 }
-                printf(":HV,%d\r\n", len);
+                printf("\r\n:HV,%d\r\n:", len);
                 fprintf(stderr, "HV is %d @%ld\n", len, now);
             } else {
-                printf(":HV,%d\r\n", 0);
+                printf("\r\n:HV,%d\r\n:", 0);
                 fprintf(stderr, "HV is %d @%ld\n", 0, now);
             }
-        } else if (buf[1] == 'P' && buf[2] == 'F') {
-            if (buf[3] == ',') {
-                int newmode = atoi(buf + 4);
+        } else if (buf[0] == 'P' && buf[1] == 'F') {
+            if (buf[2] == ',') {
+                int newmode = atoi(buf + 3);
                 if (newmode != 3 && newmode != 7) {
-                    printf(":PF,!\r\n");
+                    printf("\r\n:PF,!\r\n:");
                     fprintf(stderr, "Illegal flashing mode: %s\n", buf);
                 } else {
                     pf = newmode;
-                    printf(":PF,%d\r\n", pf);
+                    printf("\r\n:PF,%d\r\n:", pf);
                     fprintf(stderr, "Flashing mode set to %d\n", pf);
                 }
             } else {
-                printf(":PF,%d\r\n", pf);
+                printf("\r\n:PF,%d\r\n:", pf);
                 fprintf(stderr, "Flashing mode %d\n", pf);
             }
-        } else if (buf[1] == 'R' && buf[2] == 'B') {
+        } else if (buf[0] == 'R' && buf[1] == 'B') {
             admin = 0;
-        } else if (buf[1] == 'V' && buf[2] == 'B') {
-            printf(":%s\r\n", buf);
-        } else if (buf[1] == 'L' && buf[2] == 'E') {
-            printf(":LE,%04x,0,008E,%x,0\r\n", mode << 8, shots);
+        } else if (buf[0] == 'V' && buf[1] == 'B') {
+            printf("\r\n:%s\r\n:", buf);
+        } else if (buf[0] == 'L' && buf[1] == 'E') {
+            printf("\r\n:LE,%04x,0,008E,%x,0\r\n:", mode << 8, shots);
             fprintf(stderr, "Status mode %d, shots %d\n", mode, shots);
         } else {
             fprintf(stderr, "Unknown operation: %s\n", buf);
