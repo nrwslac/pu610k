@@ -231,3 +231,39 @@ record(aSub, "$(BASE):SSPROC") {
 record(stringout, "$(BASE):SINCESHOT") {
     field(DESC, "Time since last shot")
 }
+
+record(longout, "$(BASE):FIRE") {
+    field(DESC, "Delayed sequence triggering")
+    field(VAL,  "0")
+    field(FLNK, "$(BASE):CLEAR_FDELAY")
+}
+
+record(longout, "$(BASE):FIRE_DELAY") {
+    field(VAL,  "5")
+    field(OUT,  "$(BASE):FDELAY")
+}
+
+record(bo, "$(BASE):CLEAR_FDELAY") {
+    field(VAL, "0")
+    field(OUT, "$(BASE):FDELAY")
+}
+
+record(calc,    "$(BASE):FDELAY") {
+    field(INPA, "$(BASE):FDELAY")
+    field(INPB, "$(BASE):FIRE_DELAY")
+    field(CALC, "(A<B)?(A+1):B")
+    field(SCAN, "1 second")
+    field(VAL,  "5")
+    field(FLNK, "$(BASE):CHECK_FDELAY")
+}
+
+record(calcout, "$(BASE):CHECK_FDELAY") {
+    field(INPA, "$(BASE):FDELAY")
+    field(INPB, "$(BASE):FIRE_DELAY")
+    field(INPC, "$(BASE):FIRE")
+    field(CALC, "A!=B")
+    field(OOPT, "Transition To Zero")
+    field(DOPT, "Use OCAL")
+    field(OCAL, "C")
+    field(OUT, "ECS:SYS0:6:PLYCTL CPP")
+}
