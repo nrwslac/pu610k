@@ -3,6 +3,8 @@
 #include <aSubRecord.h>
 #include <registryFunction.h>
 #include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 long PU610KErrorInit(struct aSubRecord *psub)
 {
