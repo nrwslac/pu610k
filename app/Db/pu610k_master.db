@@ -104,6 +104,7 @@ record(dfanout, "$(BASE):START_CHARGE") {
     field(DESC, "PU610K Operating Mode")
     field(OMSL, "supervisory")
     field(VAL,  "1")
+    field(MDEL, "-1")
     field(SELM, "All")
     field(OUTA, "$(BASE):CH0:START_CHARGE PP")
     field(OUTB, "$(BASE):CH1:START_CHARGE PP")
@@ -234,6 +235,7 @@ record(stringout, "$(BASE):SINCESHOT") {
 
 record(longout, "$(BASE):FIRE") {
     field(DESC, "Delayed sequence triggering")
+    field(MDEL, "-1")
     field(VAL,  "0")
     field(FLNK, "$(BASE):CLEAR_FDELAY")
 }
