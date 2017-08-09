@@ -1,5 +1,5 @@
 install:
 	echo Nothing to install.
 
-clean:
+realclean clean:
 	echo Nothing to clean.
