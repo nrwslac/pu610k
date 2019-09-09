@@ -6,6 +6,7 @@ import time
 
 scinit = 1
 finit = 1
+fake_finit = 1
 charge_ok = Pv.Pv("MEC:PFN:CHARGE_OK", initialize=True, monitor=True)
 
 def start_charge(e):
@@ -32,9 +33,23 @@ def fire_connect(isConnected):
     if not isConnected:
         finit = 1
 
-fire_pv     = Pv.Pv("MEC:PFN:FIRE",         initialize=True, monitor=fire)
+def fake_fire(e):
+    global fake_finit
+    if fake_finit > 0:
+        fake_finit -= 1
+    else:
+        os.system("/opt/mpg123/bin/mpg123 -a hw:0,0 fire.mp3")
+
+def fake_fire_connect(isConnected):
+    global fake_finit
+    if not isConnected:
+        fake_finit = 1
+
+fire_pv      = Pv.Pv("MEC:PFN:FIRE",         initialize=True, monitor=fire)
 fire_pv.add_connection_callback(fire_connect)
-charging_pv = Pv.Pv("MEC:PFN:START_CHARGE", initialize=True, monitor=start_charge)
+fake_fire_pv = Pv.Pv("FAKE:MEC:PFN:FIRE",    initialize=True, monitor=fake_fire)
+fake_fire_pv.add_connection_callback(fake_fire_connect)
+charging_pv  = Pv.Pv("MEC:PFN:START_CHARGE", initialize=True, monitor=start_charge)
 charging_pv.add_connection_callback(charge_connect)
 
 while True:

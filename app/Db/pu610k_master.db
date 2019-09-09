@@ -269,3 +269,40 @@ record(calcout, "$(BASE):CHECK_FDELAY") {
     field(OCAL, "C")
     field(OUT, "ECS:SYS0:6:PLYCTL CPP")
 }
+
+record(longout, "FAKE:$(BASE):FIRE") {
+    field(DESC, "Delayed fake sequence triggering")
+    field(MDEL, "-1")
+    field(VAL,  "0")
+    field(FLNK, "FAKE:$(BASE):CLEAR_FDELAY")
+}
+
+record(longout, "FAKE:$(BASE):FIRE_DELAY") {
+    field(VAL,  "5")
+    field(OUT,  "FAKE:$(BASE):FDELAY")
+}
+
+record(bo, "FAKE:$(BASE):CLEAR_FDELAY") {
+    field(VAL, "0")
+    field(OUT, "FAKE:$(BASE):FDELAY")
+}
+
+record(calc,    "FAKE:$(BASE):FDELAY") {
+    field(INPA, "FAKE:$(BASE):FDELAY")
+    field(INPB, "FAKE:$(BASE):FIRE_DELAY")
+    field(CALC, "(A<B)?(A+1):B")
+    field(SCAN, "1 second")
+    field(VAL,  "5")
+    field(FLNK, "FAKE:$(BASE):CHECK_FDELAY")
+}
+
+record(calcout, "FAKE:$(BASE):CHECK_FDELAY") {
+    field(INPA, "FAKE:$(BASE):FDELAY")
+    field(INPB, "FAKE:$(BASE):FIRE_DELAY")
+    field(INPC, "FAKE:$(BASE):FIRE")
+    field(CALC, "A!=B")
+    field(OOPT, "Transition To Zero")
+    field(DOPT, "Use OCAL")
+    field(OCAL, "C")
+    field(OUT, "FAKE:ECS:SYS0:6:PLYCTL CPP")
+}
