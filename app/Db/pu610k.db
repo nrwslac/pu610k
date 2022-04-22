@@ -62,8 +62,10 @@ record(calc, "$(BASE):CHILLER_OK") {
 record(calcout, "$(BASE):CHILLER_INTERLOCK") {
     field(INPA,  "$(BASE):CHILLER_OK")
     field(OOPT, "When Zero")
-    field(OUT,  "$(BASE):$(CHAN):MODE")
     field(DOPT, "Use CALC")
+    field(OUT,  "$(BASE):$(CHAN):MODE")
+    field(SDIS, "$(BASE):$(CHAN):MODE")
+    field(DISV, "0")
     field(CALC, "A") 
     field(SCAN, "Passive")
 }
