@@ -48,6 +48,26 @@ record(bo, "$(BASE):$(CHAN):ENABLE_RBV") {
     field(ONAM, "Enabled")
 }
 
+record(calc, "$(BASE):CHILLER_OK") {
+    field(DESC, "LPL Glass Rod chillers on")
+    field(INPA, "MEC:EK9K1:BI1:1")
+    field(INPB, "MEC:EK9K1:BI1:2")
+    field(INPC, "MEC:EK9K1:BI1:3")
+    field(PINI, "YES")
+    field(CALC, "A&&B&&C") 
+    field(SCAN, "1 second")
+    field(PROC, "$(BASE):CHILLER_INTERLOCK.PROC")
+}
+
+record(calcout, "$(BASE):CHILLER_INTERLOCK") {
+    field(INPA,  "$(BASE):CHILLER_OK")
+    field(OOPT, "When Zero")
+    field(OUT,  "$(BASE):$(CHAN):MODE")
+    field(DOPT, "Use CALC")
+    field(CALC, "A") 
+    field(SCAN, "Passive")
+}
+
 record(longout, "$(BASE):$(CHAN):MODE") {
     field(DESC, "PU610K Operating Mode")
     field(OMSL, "supervisory")
@@ -66,7 +86,8 @@ record(calc, "$(BASE):$(CHAN):MODE_ALLOW") {
     field(DESC, "PU610K Operating Mode")
     field(INPA, "$(BASE):$(CHAN):MODE")
     field(INPB, "$(BASE):$(CHAN):ENABLE_RBV")
-    field(CALC, "((A==0)||(B!=0))&&(A>=0)&&(A<=2)") 
+    field(INPC, "$(BASE):CHILLER_OK")
+    field(CALC, "((A==0)||(B!=0))&&(A>=0)&&(A<=2)&&((A==0)||(C==1))") 
 }
 
 record(mbbo,    "$(BASE):$(CHAN):MODE_SET") {
