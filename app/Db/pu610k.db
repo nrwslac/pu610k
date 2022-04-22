@@ -50,9 +50,9 @@ record(bo, "$(BASE):$(CHAN):ENABLE_RBV") {
 
 record(calc, "$(BASE):CHILLER_OK") {
     field(DESC, "LPL Glass Rod chillers on")
-    field(INPA, "MEC:EK9K1:BI1:1")
-    field(INPB, "MEC:EK9K1:BI1:2")
-    field(INPC, "MEC:EK9K1:BI1:3")
+    field(INPA, "$(CHILL):1")
+    field(INPB, "$(CHILL):2")
+    field(INPC, "$(CHILL):3")
     field(PINI, "YES")
     field(CALC, "A&&B&&C") 
     field(SCAN, "1 second")
