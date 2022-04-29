@@ -48,26 +48,18 @@ record(bo, "$(BASE):$(CHAN):ENABLE_RBV") {
     field(ONAM, "Enabled")
 }
 
-record(calc, "$(BASE):CHILLER_OK") {
-    field(DESC, "LPL Glass Rod chillers on")
-    field(INPA, "$(CHILL):1")
-    field(INPB, "$(CHILL):2")
-    field(INPC, "$(CHILL):3")
-    field(PINI, "YES")
-    field(CALC, "A&&B&&C") 
-    field(SCAN, "1 second")
-    field(PROC, "$(BASE):CHILLER_INTERLOCK.PROC")
-}
-
 record(calcout, "$(BASE):CHILLER_INTERLOCK") {
-    field(INPA,  "$(BASE):CHILLER_OK")
+    field(DESC, "LPL Glass Rod chillers on")
+    field(INPA, "$(CHILL):1 CPP NMS")
+    field(INPB, "$(CHILL):2 CPP NMS")
+    field(INPC, "$(CHILL):3 CPP NMS")
     field(OOPT, "When Zero")
     field(DOPT, "Use CALC")
+    field(SDIS, "$(BASE):$(CHAN):MODE_RBV PP NMS")
     field(OUT,  "$(BASE):$(CHAN):MODE")
-    field(SDIS, "$(BASE):$(CHAN):MODE")
     field(DISV, "0")
-    field(CALC, "A") 
-    field(SCAN, "Passive")
+    field(CALC, "A&&B&&C") 
+    field(SCAN, "1 second")
 }
 
 record(longout, "$(BASE):$(CHAN):MODE") {
