@@ -49,7 +49,7 @@ record(bo, "$(BASE):$(CHAN):ENABLE_RBV") {
 }
 
 record(calcout, "$(BASE):CHILLER_INTERLOCK") {
-    field(DESC, "LPL Glass Rod chillers on")
+    field(DESC, "LPL glass rod chiller protection")
     field(INPA, "$(CHILL):1 CPP NMS")
     field(INPB, "$(CHILL):2 CPP NMS")
     field(INPC, "$(CHILL):3 CPP NMS")
