@@ -55,7 +55,7 @@ record(calcout, "$(BASE):CHILLER_INTERLOCK") {
     field(INPC, "$(CHILL):3 CPP NMS")
     field(OOPT, "When Zero")
     field(DOPT, "Use CALC")
-    field(SDIS, "$(BASE):$(CHAN):MODE_RBV PP NMS")
+    field(SDIS, "$(BASE):$(CHAN):MODE_RBV NMS")
     field(OUT,  "$(BASE):$(CHAN):MODE")
     field(DISV, "0")
     field(CALC, "A&&B&&C") 
