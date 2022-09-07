@@ -1,0 +1,85 @@
+# iocAdmin autosave template
+# Format:
+# <PVNAME>
+# (Nothing to autosave for iocAdmin)
+#
+# List of PVs to autosave.  Assume MEC:PFN is the detector base PV,
+# CH0 is the channel number/name, and IOC:MEC:PFN is the IOC base PV.
+#
+MEC:PFN:CH0:ENABLE_RBV
+MEC:PFN:CH0:VOLTAGE
+MEC:PFN:CH0:CHARGE_INHIBIT
+MEC:PFN:AUTO_FLASH_ON
+MEC:PFN:FIRE_DELAY
+#
+# List of PVs to autosave.  Assume MEC:PFN is the detector base PV,
+# CH1 is the channel number/name, and IOC:MEC:PFN is the IOC base PV.
+#
+MEC:PFN:CH1:ENABLE_RBV
+MEC:PFN:CH1:VOLTAGE
+MEC:PFN:CH1:CHARGE_INHIBIT
+MEC:PFN:AUTO_FLASH_ON
+MEC:PFN:FIRE_DELAY
+#
+# List of PVs to autosave.  Assume MEC:PFN is the detector base PV,
+# CH2 is the channel number/name, and IOC:MEC:PFN is the IOC base PV.
+#
+MEC:PFN:CH2:ENABLE_RBV
+MEC:PFN:CH2:VOLTAGE
+MEC:PFN:CH2:CHARGE_INHIBIT
+MEC:PFN:AUTO_FLASH_ON
+MEC:PFN:FIRE_DELAY
+#
+# List of PVs to autosave.  Assume MEC:PFN is the detector base PV,
+# CH3 is the channel number/name, and IOC:MEC:PFN is the IOC base PV.
+#
+MEC:PFN:CH3:ENABLE_RBV
+MEC:PFN:CH3:VOLTAGE
+MEC:PFN:CH3:CHARGE_INHIBIT
+MEC:PFN:AUTO_FLASH_ON
+MEC:PFN:FIRE_DELAY
+#
+# List of PVs to autosave.  Assume MEC:PFN is the detector base PV,
+# CH4 is the channel number/name, and IOC:MEC:PFN is the IOC base PV.
+#
+MEC:PFN:CH4:ENABLE_RBV
+MEC:PFN:CH4:VOLTAGE
+MEC:PFN:CH4:CHARGE_INHIBIT
+MEC:PFN:AUTO_FLASH_ON
+MEC:PFN:FIRE_DELAY
+#
+# List of PVs to autosave.  Assume MEC:PFN is the detector base PV,
+# CH5 is the channel number/name, and IOC:MEC:PFN is the IOC base PV.
+#
+MEC:PFN:CH5:ENABLE_RBV
+MEC:PFN:CH5:VOLTAGE
+MEC:PFN:CH5:CHARGE_INHIBIT
+MEC:PFN:AUTO_FLASH_ON
+MEC:PFN:FIRE_DELAY
+#
+# List of PVs to autosave.  Assume MEC:PFN is the detector base PV,
+# CH6 is the channel number/name, and IOC:MEC:PFN is the IOC base PV.
+#
+MEC:PFN:CH6:ENABLE_RBV
+MEC:PFN:CH6:VOLTAGE
+MEC:PFN:CH6:CHARGE_INHIBIT
+MEC:PFN:AUTO_FLASH_ON
+MEC:PFN:FIRE_DELAY
+#
+# List of PVs to autosave.  Assume MEC:PFN is the detector base PV,
+# CH7 is the channel number/name, and IOC:MEC:PFN is the IOC base PV.
+#
+MEC:PFN:CH7:ENABLE_RBV
+MEC:PFN:CH7:VOLTAGE
+MEC:PFN:CH7:CHARGE_INHIBIT
+MEC:PFN:AUTO_FLASH_ON
+MEC:PFN:FIRE_DELAY
+#
+# List of PVs to autosave.  Assume MEC:PFN is the detector base PV,
+# CH8 is the channel number/name, and IOC:MEC:PFN is the IOC base PV.
+#
+MEC:PFN:CH8:ENABLE_RBV
+MEC:PFN:CH8:VOLTAGE
+MEC:PFN:CH8:CHARGE_INHIBIT
+MEC:PFN:AUTO_FLASH_ON
+MEC:PFN:FIRE_DELAY

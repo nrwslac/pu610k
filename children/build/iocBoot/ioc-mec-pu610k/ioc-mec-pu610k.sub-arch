@@ -1,0 +1,23 @@
+# pu610k IOC instance archive file
+
+file archive_iocAdmin.tpl-arch
+{
+	{ IOC = "IOC:MEC:PFN" }
+}
+
+file pu610k.archive
+{
+	pattern
+	{ IOC,     BASE,    CHAN      }
+	{IOC:MEC:PFN, MEC:PFN,  CH0 }
+	{IOC:MEC:PFN, MEC:PFN,  CH1 }
+	{IOC:MEC:PFN, MEC:PFN,  CH2 }
+	{IOC:MEC:PFN, MEC:PFN,  CH3 }
+	{IOC:MEC:PFN, MEC:PFN,  CH4 }
+	{IOC:MEC:PFN, MEC:PFN,  CH5 }
+	{IOC:MEC:PFN, MEC:PFN,  CH6 }
+	{IOC:MEC:PFN, MEC:PFN,  CH7 }
+	{IOC:MEC:PFN, MEC:PFN,  CH8 }
+}
+
+

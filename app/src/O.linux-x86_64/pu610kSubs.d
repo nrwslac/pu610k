@@ -1,0 +1,16 @@
+pu610kSubs.o: ../pu610kSubs.c \
+  /reg/g/pcds/epics/base/R3.14.12-0.4.0/include/epicsExport.h \
+  /reg/g/pcds/epics/base/R3.14.12-0.4.0/include/shareLib.h \
+  /reg/g/pcds/epics/base/R3.14.12-0.4.0/include/epicsTypes.h \
+  /reg/g/pcds/epics/base/R3.14.12-0.4.0/include/shareLib.h \
+  /reg/g/pcds/epics/base/R3.14.12-0.4.0/include/aSubRecord.h \
+  /reg/g/pcds/epics/base/R3.14.12-0.4.0/include/epicsTypes.h \
+  /reg/g/pcds/epics/base/R3.14.12-0.4.0/include/link.h \
+  /reg/g/pcds/epics/base/R3.14.12-0.4.0/include/dbDefs.h \
+  /reg/g/pcds/epics/base/R3.14.12-0.4.0/include/epicsMutex.h \
+  /reg/g/pcds/epics/base/R3.14.12-0.4.0/include/epicsAssert.h \
+  /reg/g/pcds/epics/base/R3.14.12-0.4.0/include/os/Linux/osdMutex.h \
+  /reg/g/pcds/epics/base/R3.14.12-0.4.0/include/ellLib.h \
+  /reg/g/pcds/epics/base/R3.14.12-0.4.0/include/epicsTime.h \
+  /reg/g/pcds/epics/base/R3.14.12-0.4.0/include/os/Linux/osdTime.h \
+  /reg/g/pcds/epics/base/R3.14.12-0.4.0/include/registryFunction.h

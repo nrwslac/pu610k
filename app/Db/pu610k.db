@@ -48,20 +48,6 @@ record(bo, "$(BASE):$(CHAN):ENABLE_RBV") {
     field(ONAM, "Enabled")
 }
 
-record(calcout, "$(BASE):CHILLER_INTERLOCK") {
-    field(DESC, "LPL glass rod chiller protection")
-    field(INPA, "$(CHILL):1 CPP NMS")
-    field(INPB, "$(CHILL):2 CPP NMS")
-    field(INPC, "$(CHILL):3 CPP NMS")
-    field(OOPT, "When Zero")
-    field(DOPT, "Use CALC")
-    field(SDIS, "$(BASE):$(CHAN):MODE_RBV NMS")
-    field(OUT,  "$(BASE):$(CHAN):MODE")
-    field(DISV, "0")
-    field(CALC, "A&&B&&C") 
-    field(SCAN, "1 second")
-}
-
 record(longout, "$(BASE):$(CHAN):MODE") {
     field(DESC, "PU610K Operating Mode")
     field(OMSL, "supervisory")

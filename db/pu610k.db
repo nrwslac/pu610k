@@ -1,0 +1,440 @@
+#
+# Assume $(BASE) is the base PV, $(CHAN) is the channel number/name, $(PORT) is
+# the asyn port, and $(NAME) is the user-friendly name.
+#
+# New regime:  XXX is the desired value.  XXX_ALLOW determines if this is permitted.
+#              XXX_SET actually does a set from XXX if XXX_ALLOW isn't 0.  XXX_RBV
+#              checks with the HW to see what is actually there.
+#
+record(stringout, "$(BASE):$(CHAN):NAME") {
+    field(DESC, "PU610K Name")
+    field(VAL,  "$(NAME)")
+}
+
+record(longout, "$(BASE):$(CHAN):INIT") {
+    field(DESC, "PU610K Operating Mode")
+    field(DTYP, "stream")
+    field(OUT,  "@pu610k.proto Initialization $(PORT)")
+    field(OMSL, "supervisory")
+    field(PINI, "YES")
+    field(FLNK, "$(BASE):$(CHAN):INIT_FANOUT")
+}
+
+record(fanout, "$(BASE):$(CHAN):INIT_FANOUT") {
+    field(LNK1, "$(BASE):$(CHAN):MODE_SET")
+    field(LNK2, "$(BASE):$(CHAN):VOLTAGE")
+    field(LNK3, "$(BASE):$(CHAN):CHARGE_INHIBIT")
+    field(LNK4, "$(BASE):$(CHAN):SAVE_SHOT")
+    field(LNK5, "$(BASE):$(CHAN):CHARGE_STATE")
+}
+
+record(bo, "$(BASE):$(CHAN):ENABLE") {
+    field(DESC, "PU610K Channel Enable")
+    field(DTYP, "Soft Channel")
+    field(OMSL, "supervisory")
+    field(ZNAM, "Disabled")
+    field(ONAM, "Enabled")
+    field(SDIS, "$(BASE):MODE_IS_STOP")		# Only Enable/Disable in MD,0.
+    field(DISV, "0")
+    field(FLNK, "$(BASE):$(CHAN):ENABLE_RBV")
+}
+
+record(bo, "$(BASE):$(CHAN):ENABLE_RBV") {
+    field(DESC, "PU610K Channel Enable")
+    field(DTYP, "Soft Channel")
+    field(OMSL, "closed_loop")
+    field(DOL, "$(BASE):$(CHAN):ENABLE")
+    field(ZNAM, "Disabled")
+    field(ONAM, "Enabled")
+}
+
+record(longout, "$(BASE):$(CHAN):MODE") {
+    field(DESC, "PU610K Operating Mode")
+    field(OMSL, "supervisory")
+    field(DRVL, "0")
+    field(DRVH, "2")
+    field(FLNK, "$(BASE):$(CHAN):MODE_FANOUT")
+    field(VAL,  "0")
+}
+
+record(fanout, "$(BASE):$(CHAN):MODE_FANOUT") {
+    field(LNK1, "$(BASE):$(CHAN):MODE_ALLOW")
+    field(LNK2, "$(BASE):$(CHAN):MODE_SET")
+}
+
+record(calc, "$(BASE):$(CHAN):MODE_ALLOW") {
+    field(DESC, "PU610K Operating Mode")
+    field(INPA, "$(BASE):$(CHAN):MODE")
+    field(INPB, "$(BASE):$(CHAN):ENABLE_RBV")
+    field(CALC, "((A==0)||(B!=0))&&(A>=0)&&(A<=2)") 
+}
+
+record(mbbo,    "$(BASE):$(CHAN):MODE_SET") {
+    field(DESC, "PU610K Mode")
+    field(DTYP, "stream")
+    field(OMSL, "closed_loop")
+    field(DOL,  "$(BASE):$(CHAN):MODE")
+    field(OUT,  "@pu610k.proto ModeSet $(PORT)")
+    field(SDIS, "$(BASE):$(CHAN):MODE_ALLOW NPP")
+    field(DISV, "0")
+    field(ZRVL, "0")
+    field(ONVL, "1")
+    field(TWVL, "2")
+    field(THVL, "0")         # NO THREE!!!
+    field(FRVL, "0")         # I suppose we *could* write fault, but why?
+    field(ZRST, "Stop")
+    field(ONST, "Standby")
+    field(TWST, "Flash")
+    field(FLNK, "$(BASE):$(CHAN):MODE_RBV")
+}
+
+record(longin,   "$(BASE):$(CHAN):MODE_RBV") {
+    field(DESC,  "PU610K Operating Mode")
+    field(DTYP,  "stream")
+    field(INP,   "@pu610k.proto ModeGet $(PORT)")
+    field(LOW,   "-1")
+    field(LOLO,  "-1")
+    field(HIGH,  "3")
+    field(HIHI,  "4")
+    field(LLSV,  "INVALID")
+    field(LSV,   "INVALID")
+    field(HSV,   "MINOR")
+    field(HHSV,  "MAJOR")
+    field(SCAN,  "1 second")                   # Do we need to scan this?!?
+    field(FLNK,  "$(BASE):$(CHAN):MODE_IS_STOP")
+}
+
+record(calc, "$(BASE):$(CHAN):MODE_IS_STOP") {
+    field(INPA, "$(BASE):$(CHAN):MODE_RBV")
+    field(CALC, "(A==0)?1:0")
+    field(FLNK, "$(BASE):$(CHAN):MODE_IS_STANDBY")
+}
+
+record(calc,    "$(BASE):$(CHAN):MODE_IS_STANDBY") {
+    field(INPA, "$(BASE):$(CHAN):MODE_RBV")
+    field(CALC, "(A==1)?1:0")
+    field(FLNK, "$(BASE):$(CHAN):MODE_IS_READY")
+}
+
+record(calc,    "$(BASE):$(CHAN):MODE_IS_READY") {
+    field(INPA, "$(BASE):$(CHAN):MODE_RBV")
+    field(CALC, "(A==2)?1:0")
+    field(FLNK, "$(BASE):$(CHAN):MODE_IS_FAULT")
+}
+
+record(calc, "$(BASE):$(CHAN):MODE_IS_FAULT") {
+    field(INPA, "$(BASE):$(CHAN):MODE_RBV")
+    field(CALC, "(A==4)?1:0")
+}
+
+record(calcout, "$(BASE):$(CHAN):MODE_STOPPING") {
+    field(INPA, "$(BASE):$(CHAN):MODE_IS_STOP CPP")
+    field(CALC, "A")
+    field(OOPT, "Transition To Non-zero")
+    field(DOPT, "Use OCAL")
+    field(OCAL, "0")
+    field(OUT, "$(BASE):$(CHAN):STOP_NOW PP")
+}
+
+record(calcout, "$(BASE):$(CHAN):MODE_STANDBYING") {
+    field(INPA, "$(BASE):$(CHAN):MODE_IS_STANDBY CPP")
+    field(CALC, "A")
+    field(OOPT, "Transition To Non-zero")
+    field(DOPT, "Use OCAL")
+    field(OCAL, "0")
+    field(OUT, "$(BASE):$(CHAN):STOP_NOW PP")
+}
+
+record(calcout, "$(BASE):$(CHAN):MODE_FAULTING") {
+    field(INPA, "$(BASE):$(CHAN):MODE_IS_FAULT CPP")
+    field(CALC, "A")
+    field(OOPT, "Transition To Non-zero")
+    field(DOPT, "Use OCAL")
+    field(OCAL, "0")
+    field(OUT, "$(BASE):$(CHAN):STOP_NOW PP")
+}
+
+record (dfanout, "$(BASE):$(CHAN):STOP_NOW") {
+    field(SELM, "All")
+    field(OUTA, "$(BASE):$(CHAN):VOLTAGE_MEASURED PP")
+    field(OUTB, "$(BASE):$(CHAN):CHARGE_STATE PP")
+}
+
+record(calc,    "$(BASE):$(CHAN):MODE_IS_READY5") {
+    field(INPA, "$(BASE):$(CHAN):MODE_IS_READY")
+    field(INPB, "$(BASE):$(CHAN):MODE_IS_READY5")
+    field(CALC, "(A==0)?0:((B!=5)?(B+1):B)")	# Five-second ready count.
+    field(SCAN, "1 second")
+}
+
+record(calc,    "$(BASE):$(CHAN):MODE_OK") {
+    field(INPA, "$(BASE):$(CHAN):MODE CPP")
+    field(INPB, "$(BASE):$(CHAN):MODE_RBV CPP")
+    field(INPC, "$(BASE):$(CHAN):ENABLE_RBV CPP")
+    field(CALC, "(A==B)||!C")			# Mode is OK if we are disabled or have done as told.
+}
+
+record(calc,    "$(BASE):$(CHAN):FAULT") {
+    field(INPA, "$(BASE):$(CHAN):MODE_RBV CPP")
+    field(INPB, "$(BASE):$(CHAN):ENABLE_RBV CPP")
+    field(CALC, "(A==4)&&C")			# Fault if mode 4 *and* enabled.
+}
+
+record(longout, "$(BASE):$(CHAN):VOLTAGE") {
+    field(DESC, "PU610K Voltage")
+    field(DTYP, "stream")
+    field(OUT,  "@pu610k.proto VoltageSet $(PORT)")
+    field(OMSL, "supervisory")
+    field(FLNK, "$(BASE):$(CHAN):VOLTAGE_RBV")
+}
+
+record(longin,   "$(BASE):$(CHAN):VOLTAGE_RBV") {
+    field(DESC,  "PU610K Voltage")
+    field(DTYP,  "stream")
+    field(INP,   "@pu610k.proto VoltageGet $(PORT)")
+}
+
+record(longout, "$(BASE):$(CHAN):CHARGE_INHIBIT") {
+    field(DESC, "PU610K Charge Inhibit")
+    field(DTYP, "stream")
+    field(OUT,  "@pu610k.proto ChargeInhibitSet $(PORT)")
+    field(OMSL, "supervisory")
+    field(FLNK, "$(BASE):$(CHAN):CHARGE_DEFER")
+    field(VAL,  "30")
+}
+
+record(longout, "$(BASE):$(CHAN):CHARGE_DEFER") {
+    field(DESC, "PU610K Charge Defer")
+    field(DTYP, "stream")
+    field(OUT,  "@pu610k.proto ChargeDeferSet $(PORT)")
+    field(DOL,  "$(BASE):$(CHAN):CHARGE_INHIBIT")
+    field(OMSL, "closed_loop")
+    field(FLNK, "$(BASE):$(CHAN):CHARGE_INHIBIT_RBV")
+}
+
+record(fanout, "$(BASE):$(CHAN):MODE2_SCANS") {
+    field(LNK1, "$(BASE):$(CHAN):CHARGE_INHIBIT_RBV")
+    field(LNK2, "$(BASE):$(CHAN):VOLTAGE_MEASURED")
+    field(SDIS, "$(BASE):$(CHAN):MODE_IS_READY")
+    field(DISV, "0")
+    field(SCAN, "1 second")
+}
+
+record(longin, "$(BASE):$(CHAN):CHARGE_INHIBIT_RBV") {
+    field(DESC, "PU610K Charge Inhibit")
+    field(DTYP, "stream")
+    field(INP,  "@pu610k.proto ChargeInhibitGet $(PORT)")
+    field(FLNK, "$(BASE):$(CHAN):CHARGE_DEFER_RBV")
+}
+
+record(longin, "$(BASE):$(CHAN):CHARGE_DEFER_RBV") {
+    field(DESC, "PU610K Charge Defer")
+    field(DTYP, "stream")
+    field(INP,  "@pu610k.proto ChargeDeferGet $(PORT)")
+}
+
+record(longin, "$(BASE):$(CHAN):CI_COUNTDOWN") {
+    field(DESC, "PU610K Charge Inhibit Countdown")
+    field(DTYP, "stream")
+    field(INP,  "@pu610k.proto CICountdownGet $(PORT)")
+    field(SCAN, "I/O Intr")			# Comes for free with CHARGE_INHIBIT_RBV.
+}
+
+record(calc, "$(BASE):$(CHAN):CHARGE_ENABLE") {
+    field(INPA, "$(BASE):$(CHAN):CI_COUNTDOWN CPP")
+    field(INPB, "$(BASE):$(CHAN):MODE_IS_READY5 CPP")
+    field(CALC, "(A==0)&&(B==5)")		# Charge enabled if count is 0 and in MD,2 for 5 sec.
+}
+
+record(calc, "$(BASE):$(CHAN):CHARGE_OK") {
+    field(INPA, "$(BASE):$(CHAN):CHARGE_ENABLE CPP")
+    field(INPB, "$(BASE):$(CHAN):ENABLE_RBV CPP")
+    field(CALC, "(A!=0)||(B==0)")               # Charge state is good if charge is enabled or we're disabled.
+}
+
+record(longin, "$(BASE):$(CHAN):VOLTAGE_MEASURED") {
+    field(DESC, "PU610K Voltage Measurement")
+    field(DTYP, "stream")
+    field(INP,  "@pu610k.proto HighVoltageGet $(PORT)")
+}
+
+record(longin, "$(BASE):$(CHAN):STATEVAL") {
+    field(DESC, "PU610K State")
+    field(DTYP, "stream")
+    field(INP,  "@pu610k.proto ListAllGet $(PORT)")
+    field(SCAN, "1 second")
+}
+
+record(longin, "$(BASE):$(CHAN):SHOTCNT") {
+    field(DESC, "PU610K Shot Count")
+    field(DTYP, "stream")
+    field(INP,  "@pu610k.proto ShotCntGet $(PORT)")
+    field(SCAN, "I/O Intr")			# Comes for free with STATEVAL.
+    field(FLNK, "$(BASE):$(CHAN):CHECK_SHOT")
+}
+
+record(calcout, "$(BASE):$(CHAN):CHECK_SHOT") {
+    field(INPA, "$(BASE):$(CHAN):SHOTCNT")
+    field(INPB, "$(BASE):$(CHAN):SAVE_SHOT")
+    field(CALC, "A == B")
+    field(OOPT, "Transition To Zero")
+    field(DOPT, "Use OCAL")
+    field(OCAL, "0")
+    field(OUT, "$(BASE):$(CHAN):CHARGE_STATE PP")
+    field(FLNK, "$(BASE):$(CHAN):SAVE_SHOT")
+}
+
+record(longin, "$(BASE):$(CHAN):SAVE_SHOT") {
+    field(DESC, "PU610K Last Shot Count")
+    field(INP,  "$(BASE):$(CHAN):SHOTCNT")
+}
+
+record(longout, "$(BASE):$(CHAN):START_CHARGE") {
+    field(DESC, "PU610K Start Charging")
+    field(DTYP, "stream")
+    field(OUT,  "@pu610k.proto ChargeSet $(PORT)")
+    field(OMSL, "supervisory")
+    field(SDIS, "$(BASE):$(CHAN):CHARGE_ENABLE")
+    field(DISV, "0")
+    field(FLNK, "$(BASE):$(CHAN):SET_CS_CHARGING")
+}
+
+record(longout, "$(BASE):$(CHAN):SET_CS_CHARGING") {
+    field(OUT,  "$(BASE):$(CHAN):CHARGE_STATE PP")
+    field(VAL,  "1")
+    field(OMSL, "supervisory")
+}
+
+record(longout, "$(BASE):$(CHAN):SET_CS_CHARGED") {
+    field(OUT,  "$(BASE):$(CHAN):CHARGE_STATE PP")
+    field(VAL,  "2")
+    field(SDIS, "$(BASE):$(CHAN):CHARGE_COMPLETE")
+    field(DISV, "0")
+    field(OMSL, "supervisory")
+}
+
+record(longin, "$(BASE):$(CHAN):CHARGE_COMPLETE") {
+    field(DESC, "PU610K Start Done")
+    field(DTYP, "stream")
+    field(INP,  "@pu610k.proto ChargeDone $(PORT)")
+    field(SDIS, "$(BASE):$(CHAN):CS_IS_CHARGING")
+    field(DISV, "0")
+    field(SCAN, "1 second")
+    field(FLNK, "$(BASE):$(CHAN):SET_CS_CHARGED")
+}
+
+record(mbbo,    "$(BASE):$(CHAN):CHARGE_STATE") {
+    field(DESC, "PU610K Charge State")
+    field(DTYP, "Soft Channel")
+    field(OMSL, "supervisory")
+    field(ZRVL, "0")
+    field(ONVL, "1")
+    field(TWVL, "2")
+    field(ZRST, "Not Charging")
+    field(ONST, "Charging")
+    field(TWST, "Charged")
+    field(VAL,  "0")
+    field(FLNK, "$(BASE):$(CHAN):CS_FANOUT")
+}
+
+record(fanout,  "$(BASE):$(CHAN):CS_FANOUT") {
+    field(LNK1, "$(BASE):$(CHAN):CHARGE_COMPLETE")    # Read the zero...
+    field(LNK2, "$(BASE):$(CHAN):CS_IS_CHARGING")     # ... before we disable it.
+    field(LNK3, "$(BASE):$(CHAN):CHARGE_COMPLETE")    # Or start reading, if we're enabling it!
+}
+
+record(calc,    "$(BASE):$(CHAN):CS_IS_CHARGING") {
+    field(INPA, "$(BASE):$(CHAN):CHARGE_STATE")
+    field(CALC, "(A==1)?1:0")
+    field(FLNK, "$(BASE):$(CHAN):CS_NOT_CHARGING")
+}
+
+record(calc,    "$(BASE):$(CHAN):CS_NOT_CHARGING") {
+    field(INPA, "$(BASE):$(CHAN):CHARGE_STATE")
+    field(CALC, "(A==0)?1:0")
+}
+
+record(mbbi,    "$(BASE):$(CHAN):GET_FLASH_MODE") {
+    field(DESC, "PU610K Flashing Mode")
+    field(DTYP, "stream")
+    field(INP,  "@pu610k.proto FlashModeGet $(PORT)")
+    field(ZRVL, "7")
+    field(ONVL, "3")
+    field(ZRST, "Manual")
+    field(ONST, "Auto")
+    field(PINI, "YES")
+    field(FLNK, "$(BASE):$(CHAN):FLASH_MODE_OK")
+}
+
+record(calc,    "$(BASE):$(CHAN):FLASH_MODE_OK") {
+    field(INPA, "$(BASE):$(CHAN):GET_FLASH_MODE")
+    field(INPB, "$(BASE):AUTO_FLASH_ON")
+    field(CALC, "A==B")
+    field(LOW,  "0")
+    field(LSV,  "MAJOR")
+    field(PINI, "YES")
+    field(SCAN, "1 second")
+}
+
+record(mbbo,    "$(BASE):$(CHAN):SET_FLASH_MODE") {
+    field(DESC, "PU610K Flashing Mode")
+    field(DTYP, "stream")
+    field(OUT,  "@pu610k.proto FlashModeSet $(PORT)")
+    field(OMSL, "closed_loop")
+    field(DOL, "$(BASE):AUTO_FLASH_ON")
+    field(ZRVL, "7")
+    field(ONVL, "3")
+    field(ZRST, "Manual")
+    field(ONST, "Auto")
+    field(SDIS, "$(BASE):MODE_IS_STOP")		# Only change mode in MD,0.
+    field(DISV, "0")
+    field(FLNK, "$(BASE):$(CHAN):REBOOT")
+}
+
+record(longout, "$(BASE):$(CHAN):REBOOT") {
+    field(DESC, "PU610K Reboot")
+    field(DTYP, "stream")
+    field(OUT,  "@pu610k.proto Reboot $(PORT)")
+    field(OMSL, "supervisory")
+#    field(FLNK, "$(BASE):$(CHAN):REINIT")
+}
+
+## Put a delay here?
+
+record(longout, "$(BASE):$(CHAN):REINIT") {
+    field(DESC, "PU610K Reinitialization")
+    field(DTYP, "stream")
+    field(OUT,  "@pu610k.proto Initialization $(PORT)")
+    field(OMSL, "supervisory")
+    field(FLNK, "$(BASE):$(CHAN):GET_FLASH_MODE")
+}
+
+record(stringin, "$(BASE):$(CHAN):RAW_ERROR") {
+    field(DESC, "PU610K Error Reporting")
+    field(DTYP, "stream")
+    field(INP,  "@pu610k.proto ErrorGet $(PORT)")
+    field(SCAN, "1 second")
+    field(FLNK, "$(BASE):$(CHAN):PARSE_ERROR")
+}
+
+record(aSub, "$(BASE):$(CHAN):PARSE_ERROR") {
+    field(INAM, "PU610KErrorInit")
+    field(SNAM, "PU610KErrorParse")
+    field(FTA,  "STRING")
+    field(INPA, "$(BASE):$(CHAN):RAW_ERROR")
+    field(FTVA, "LONG")
+    field(OUTA, "$(BASE):$(CHAN):ERROR PP")
+    field(FTVB, "STRING")
+    field(OUTB, "$(BASE):$(CHAN):ERRORMSG PP")
+}
+
+record(longout, "$(BASE):$(CHAN):ERROR") {
+    field(VAL, "0")
+    field(OMSL, "supervisory")
+    field(HIGH, "1")
+    field(HSV, "MAJOR")
+}
+
+record(stringout, "$(BASE):$(CHAN):ERRORMSG") {
+    field(OMSL, "supervisory")
+}

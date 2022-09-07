@@ -39,7 +39,7 @@ $$LOOP(PU610K)
 dbLoadRecords("db/pu610k.db", "BASE=$$BASE,PORT=PU_$$INDEX,CHAN=CH$$INDEX,T0=$$IF(T0,$$T0,0),T1=$$IF(T1,$$T1,0),NAME=$$NAME")
 dbLoadRecords("db/asynRecord.db", "P=$$BASE,R=:ASYN,PORT=PU_$$INDEX,ADDR=0,OMAX=0,IMAX=0")
 $$ENDLOOP(PU610K)
-dbLoadRecords("db/pu610k_master.db", "BASE=$$BASE,T0=1")
+dbLoadRecords("db/pu610k_master.db", "BASE=$$BASE,T0=1,CHILL=MEC:EK9K1:BI1")
 
 # Setup autosave
 set_savefile_path("$(IOC_DATA)/$(IOC)/autosave")

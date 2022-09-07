@@ -763,6 +763,44 @@ major 4
 minor 0
 release 0
 x 660
+y 68
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 15
+fillAlarm
+visPv "$(BASE):CHILLER_INTERLOCK"
+visMin "1"
+visMax "2"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 712 
+y 65 
+w 60 
+h 18 
+font "helvetica-bold-r-12.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "CHILL OK"
+}
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 660
 y 88
 w 40
 h 10
@@ -3640,6 +3678,25 @@ fill
 fillColor index 14
 fillAlarm
 visPv "$(BASE):CHARGE_OK"
+visMin "0"
+visMax "1"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 660
+y 68
+w 40
+h 10
+lineColor index 14
+fill
+fillColor index 14
+fillAlarm
+visPv "$(BASE):CHILLER_INTERLOCK"
 visMin "0"
 visMax "1"
 endObjectProperties

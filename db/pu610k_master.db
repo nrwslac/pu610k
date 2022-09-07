@@ -1,0 +1,322 @@
+record(calcout, "$(BASE):CHILLER_INTERLOCK") {
+    field(DESC, "LPL glass rod chiller protection")
+    field(INPA, "$(CHILL):1 CPP NMS")
+    field(INPB, "$(CHILL):2 CPP NMS")
+    field(INPC, "$(CHILL):3 CPP NMS")
+    field(OOPT, "When Zero")
+    field(DOPT, "Use CALC")
+    field(SDIS, "$(BASE):MODE_RBV NMS")
+    field(OUT,  "$(BASE):MODE PP")
+    field(DISV, "0")
+    field(CALC, "A&&B&&C")
+    field(SCAN, "10 second")
+}
+
+record(longout, "$(BASE):MODE") {
+    field(DESC, "PU610K Operating Mode")
+    field(DRVL, "0")
+    field(DRVH, "2")
+    field(VAL,  "0")
+    field(PINI, "YES")
+    field(FLNK, "$(BASE):MODE_ALLOW")
+}
+
+record(calcout, "$(BASE):MODE_ALLOW") {
+    field(INPA, "$(BASE):MODE")
+    field(INPB, "$(BASE):MODE_RBV")
+    field(CALC, "!(A==2&&B==0)")
+    field(OOPT, "When Non-zero")
+    field(DOPT, "Use OCAL")
+    field(OCAL, "A")
+    field(OUT, "$(BASE):MODE_RBV PP")
+}
+
+record(dfanout, "$(BASE):MODE_RBV") {
+    field(DESC, "PU610K Operating Mode")
+    field(OMSL, "supervisory")
+    field(VAL,  "0")
+    field(SELM, "All")
+    field(OUTA, "$(BASE):CH0:MODE PP")
+    field(OUTB, "$(BASE):CH1:MODE PP")
+    field(OUTC, "$(BASE):CH2:MODE PP")
+    field(OUTD, "$(BASE):CH3:MODE PP")
+    field(OUTE, "$(BASE):CH4:MODE PP")
+    field(OUTF, "$(BASE):CH5:MODE PP")
+    field(OUTG, "$(BASE):CH6:MODE PP")
+    field(OUTH, "$(BASE):CH7:MODE PP")
+    field(FLNK, "$(BASE):MODE_SET2")
+    field(PINI, "YES")
+}
+
+record(dfanout, "$(BASE):MODE_SET2") {
+    field(DESC, "PU610K Operating Mode")
+    field(OMSL, "closed_loop")
+    field(DOL, "$(BASE):MODE")
+    field(SELM, "All")
+    field(OUTA, "$(BASE):CH8:MODE PP")
+    field(FLNK, "$(BASE):MODE_IS_STOP")
+}
+
+record(calc,    "$(BASE):MODE_IS_STOP") {
+    field(INPA, "$(BASE):MODE")
+    field(INPB, "$(BASE):MODE_OK")
+    field(CALC, "(A==0&&B!=0)?1:0")
+    field(FLNK, "$(BASE):MODE_IS_READY")
+}
+
+record(calc,    "$(BASE):MODE_IS_READY") {
+    field(INPA, "$(BASE):MODE")
+    field(INPB, "$(BASE):MODE_OK")
+    field(CALC, "(A==2&&B!=0)?1:0")
+}
+
+record(calc,    "$(BASE):MODE_OK") {
+    field(INPA, "$(BASE):CH0:MODE_OK CPP")
+    field(INPB, "$(BASE):CH1:MODE_OK CPP")
+    field(INPC, "$(BASE):CH2:MODE_OK CPP")
+    field(INPD, "$(BASE):CH3:MODE_OK CPP")
+    field(INPE, "$(BASE):CH4:MODE_OK CPP")
+    field(INPF, "$(BASE):CH5:MODE_OK CPP")
+    field(INPG, "$(BASE):CH6:MODE_OK CPP")
+    field(INPH, "$(BASE):CH7:MODE_OK CPP")
+    field(INPI, "$(BASE):CH8:MODE_OK CPP")
+    field(CALC, "A&B&C&D&E&F&G&H&I")
+    field(PINI, "YES")
+    field(FLNK, "$(BASE):MODE_IS_STOP")
+}
+
+record(calc,    "$(BASE):FAULT") {
+    field(INPA, "$(BASE):CH0:FAULT CPP")
+    field(INPB, "$(BASE):CH1:FAULT CPP")
+    field(INPC, "$(BASE):CH2:FAULT CPP")
+    field(INPD, "$(BASE):CH3:FAULT CPP")
+    field(INPE, "$(BASE):CH4:FAULT CPP")
+    field(INPF, "$(BASE):CH5:FAULT CPP")
+    field(INPG, "$(BASE):CH6:FAULT CPP")
+    field(INPH, "$(BASE):CH7:FAULT CPP")
+    field(INPI, "$(BASE):CH8:FAULT CPP")
+    field(CALC, "A|B|C|D|E|F|G|H|I")
+    field(PINI, "YES")
+}
+
+record(calc,    "$(BASE):CHARGE_OK") {
+    field(INPA, "$(BASE):CH0:CHARGE_OK CPP")
+    field(INPB, "$(BASE):CH1:CHARGE_OK CPP")
+    field(INPC, "$(BASE):CH2:CHARGE_OK CPP")
+    field(INPD, "$(BASE):CH3:CHARGE_OK CPP")
+    field(INPE, "$(BASE):CH4:CHARGE_OK CPP")
+    field(INPF, "$(BASE):CH5:CHARGE_OK CPP")
+    field(INPG, "$(BASE):CH6:CHARGE_OK CPP")
+    field(INPH, "$(BASE):CH7:CHARGE_OK CPP")
+    field(INPI, "$(BASE):CH8:CHARGE_OK CPP")
+    field(INPJ, "$(BASE):MODE_RBV CPP")
+    field(CALC, "A&B&C&D&E&F&G&H&I&(J==2)")
+    field(PINI, "YES")
+}
+
+record(dfanout, "$(BASE):START_CHARGE") {
+    field(DESC, "PU610K Operating Mode")
+    field(OMSL, "supervisory")
+    field(VAL,  "1")
+    field(MDEL, "-1")
+    field(SELM, "All")
+    field(OUTA, "$(BASE):CH0:START_CHARGE PP")
+    field(OUTB, "$(BASE):CH1:START_CHARGE PP")
+    field(OUTC, "$(BASE):CH2:START_CHARGE PP")
+    field(OUTD, "$(BASE):CH3:START_CHARGE PP")
+    field(OUTE, "$(BASE):CH4:START_CHARGE PP")
+    field(OUTF, "$(BASE):CH5:START_CHARGE PP")
+    field(OUTG, "$(BASE):CH6:START_CHARGE PP")
+    field(OUTH, "$(BASE):CH7:START_CHARGE PP")
+    field(SDIS, "$(BASE):CHARGE_OK")
+    field(DISV, "0")
+    field(FLNK, "$(BASE):START_CHARGE2")
+}
+
+record(dfanout, "$(BASE):START_CHARGE2") {
+    field(DESC, "PU610K Operating Mode")
+    field(OMSL, "closed_loop")
+    field(DOL, "$(BASE):START_CHARGE")
+    field(SELM, "All")
+    field(OUTA, "$(BASE):CH8:START_CHARGE PP")
+}
+
+record(bo,    "$(BASE):AUTO_FLASH_ON") {
+    field(DESC, "PU610K Flashing Mode")
+    field(ZNAM, "Manual")
+    field(ONAM, "Auto")
+    field(VAL,  "0")
+}
+
+record(dfanout, "$(BASE):FLASH_SET") {
+    field(DESC, "PU610K Operating Mode")
+    field(OMSL, "closed_loop")
+    field(DOL,  "$(BASE):AUTO_FLASH_ON")
+    field(SELM, "All")
+    field(OUTA, "$(BASE):CH0:SET_FLASH_MODE PP")
+    field(OUTB, "$(BASE):CH1:SET_FLASH_MODE PP")
+    field(OUTC, "$(BASE):CH2:SET_FLASH_MODE PP")
+    field(OUTD, "$(BASE):CH3:SET_FLASH_MODE PP")
+    field(OUTE, "$(BASE):CH4:SET_FLASH_MODE PP")
+    field(OUTF, "$(BASE):CH5:SET_FLASH_MODE PP")
+    field(OUTG, "$(BASE):CH6:SET_FLASH_MODE PP")
+    field(OUTH, "$(BASE):CH7:SET_FLASH_MODE PP")
+    field(SDIS, "$(BASE):MODE_IS_STOP")
+    field(DISV, "0")
+    field(FLNK, "$(BASE):FLASH_MODE_SET2")
+}
+
+record(dfanout, "$(BASE):FLASH_MODE_SET2") {
+    field(DESC, "PU610K Operating Mode")
+    field(OMSL, "closed_loop")
+    field(DOL,  "$(BASE):AUTO_FLASH_ON")
+    field(SELM, "All")
+    field(OUTA, "$(BASE):CH8:SET_FLASH_MODE PP")
+    field(FLNK, "$(BASE):MODE_IS_STOP")
+}
+
+record(calc,    "$(BASE):FLASH_MODE_OK") {
+    field(INPA, "$(BASE):CH0:FLASH_MODE_OK CPP")
+    field(INPB, "$(BASE):CH1:FLASH_MODE_OK CPP")
+    field(INPC, "$(BASE):CH2:FLASH_MODE_OK CPP")
+    field(INPD, "$(BASE):CH3:FLASH_MODE_OK CPP")
+    field(INPE, "$(BASE):CH4:FLASH_MODE_OK CPP")
+    field(INPF, "$(BASE):CH5:FLASH_MODE_OK CPP")
+    field(INPG, "$(BASE):CH6:FLASH_MODE_OK CPP")
+    field(INPH, "$(BASE):CH7:FLASH_MODE_OK CPP")
+    field(INPI, "$(BASE):CH8:FLASH_MODE_OK CPP")
+    field(CALC, "A&B&C&D&E&F&G&H&I")
+    field(PINI, "YES")
+}
+
+record(calc,    "$(BASE):REBOOT_OK") {
+    field(INPA, "$(BASE):FLASH_MODE_OK CPP")
+    field(INPB, "$(BASE):MODE_IS_STOP CPP")
+    field(CALC, "(A==0)&&(B!=0)")
+}
+
+record(longin, "$(BASE):LASTSHOTCNT") {
+    field(DESC, "PU610K Last Shot Count")
+    field(INP,  "$(BASE):SHOTCNT")
+}
+
+record(calcout,  "$(BASE):SHOTCHANGE") {
+    field(INPA, "$(BASE):SHOTCNT")
+    field(INPB, "$(BASE):LASTSHOTCNT")
+    field(CALC, "A == B")
+    field(OOPT, "Transition To Zero")
+    field(DOPT, "Use OCAL")
+    field(OCAL, "0")
+    field(OUT, "$(BASE):SINCESHOTSEC.VAL")
+    field(FLNK, "$(BASE):LASTSHOTCNT")
+}
+
+record(calc,    "$(BASE):SHOTCNT") {
+    field(INPA, "$(BASE):CH0:SHOTCNT")
+    field(INPB, "$(BASE):CH1:SHOTCNT")
+    field(INPC, "$(BASE):CH2:SHOTCNT")
+    field(INPD, "$(BASE):CH3:SHOTCNT")
+    field(INPE, "$(BASE):CH4:SHOTCNT")
+    field(INPF, "$(BASE):CH5:SHOTCNT")
+    field(INPG, "$(BASE):CH6:SHOTCNT")
+    field(INPH, "$(BASE):CH7:SHOTCNT")
+    field(INPI, "$(BASE):CH8:SHOTCNT")
+    field(CALC, "A+B+C+D+E+F+G+H+I")
+    field(PINI, "YES")
+    field(SCAN, "1 second")
+    field(FLNK, "$(BASE):SHOTCHANGE")
+}
+
+record(calc,    "$(BASE):SINCESHOTSEC") {
+    field(INPA, "$(BASE):SINCESHOTSEC.VAL")
+    field(CALC, "A+1")
+    field(SCAN, "1 second")
+    field(FLNK, "$(BASE):SSPROC")
+}
+
+record(aSub, "$(BASE):SSPROC") {
+    field(INAM, "PU610KTimeInit")
+    field(SNAM, "PU610KTimeParse")
+    field(FTA,  "LONG")
+    field(INPA, "$(BASE):SINCESHOTSEC.VAL")
+    field(FTVA, "STRING")
+    field(OUTA, "$(BASE):SINCESHOT PP")
+}
+
+record(stringout, "$(BASE):SINCESHOT") {
+    field(DESC, "Time since last shot")
+}
+
+record(longout, "$(BASE):FIRE") {
+    field(DESC, "Delayed sequence triggering")
+    field(MDEL, "-1")
+    field(VAL,  "0")
+    field(FLNK, "$(BASE):CLEAR_FDELAY")
+}
+
+record(longout, "$(BASE):FIRE_DELAY") {
+    field(VAL,  "5")
+    field(OUT,  "$(BASE):FDELAY")
+}
+
+record(bo, "$(BASE):CLEAR_FDELAY") {
+    field(VAL, "0")
+    field(OUT, "$(BASE):FDELAY")
+}
+
+record(calc,    "$(BASE):FDELAY") {
+    field(INPA, "$(BASE):FDELAY")
+    field(INPB, "$(BASE):FIRE_DELAY")
+    field(CALC, "(A<B)?(A+1):B")
+    field(SCAN, "1 second")
+    field(VAL,  "5")
+    field(FLNK, "$(BASE):CHECK_FDELAY")
+}
+
+record(calcout, "$(BASE):CHECK_FDELAY") {
+    field(INPA, "$(BASE):FDELAY")
+    field(INPB, "$(BASE):FIRE_DELAY")
+    field(INPC, "$(BASE):FIRE")
+    field(CALC, "A!=B")
+    field(OOPT, "Transition To Zero")
+    field(DOPT, "Use OCAL")
+    field(OCAL, "C")
+    field(OUT, "ECS:SYS0:6:PLYCTL CPP")
+}
+
+record(longout, "FAKE:$(BASE):FIRE") {
+    field(DESC, "Delayed fake sequence triggering")
+    field(MDEL, "-1")
+    field(VAL,  "0")
+    field(FLNK, "FAKE:$(BASE):CLEAR_FDELAY")
+}
+
+record(longout, "FAKE:$(BASE):FIRE_DELAY") {
+    field(VAL,  "5")
+    field(OUT,  "FAKE:$(BASE):FDELAY")
+}
+
+record(bo, "FAKE:$(BASE):CLEAR_FDELAY") {
+    field(VAL, "0")
+    field(OUT, "FAKE:$(BASE):FDELAY")
+}
+
+record(calc,    "FAKE:$(BASE):FDELAY") {
+    field(INPA, "FAKE:$(BASE):FDELAY")
+    field(INPB, "FAKE:$(BASE):FIRE_DELAY")
+    field(CALC, "(A<B)?(A+1):B")
+    field(SCAN, "1 second")
+    field(VAL,  "5")
+    field(FLNK, "FAKE:$(BASE):CHECK_FDELAY")
+}
+
+record(calcout, "FAKE:$(BASE):CHECK_FDELAY") {
+    field(INPA, "FAKE:$(BASE):FDELAY")
+    field(INPB, "FAKE:$(BASE):FIRE_DELAY")
+    field(INPC, "FAKE:$(BASE):FIRE")
+    field(CALC, "A!=B")
+    field(OOPT, "Transition To Zero")
+    field(DOPT, "Use OCAL")
+    field(OCAL, "C")
+    field(OUT, "FAKE:ECS:SYS0:6:PLYCTL CPP")
+}

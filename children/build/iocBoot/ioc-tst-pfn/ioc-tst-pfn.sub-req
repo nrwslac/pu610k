@@ -1,0 +1,21 @@
+# pu610k IOC instance autosave file
+
+file autosave_iocAdmin.tpl-req
+{
+	{ IOC = IOC:TST:PFN }
+}
+
+file pu610k.req
+{
+	pattern
+	{ IOC,     BASE,    CHAN      }
+	{IOC:TST:PFN, TST:PFN,  CH0 }
+	{IOC:TST:PFN, TST:PFN,  CH1 }
+	{IOC:TST:PFN, TST:PFN,  CH2 }
+	{IOC:TST:PFN, TST:PFN,  CH3 }
+	{IOC:TST:PFN, TST:PFN,  CH4 }
+	{IOC:TST:PFN, TST:PFN,  CH5 }
+	{IOC:TST:PFN, TST:PFN,  CH6 }
+	{IOC:TST:PFN, TST:PFN,  CH7 }
+	{IOC:TST:PFN, TST:PFN,  CH8 }
+}

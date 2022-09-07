@@ -1,0 +1,85 @@
+# iocAdmin autosave template
+# Format:
+# <PVNAME>
+# (Nothing to autosave for iocAdmin)
+#
+# List of PVs to autosave.  Assume TST:PFN is the detector base PV,
+# CH0 is the channel number/name, and IOC:TST:PFN is the IOC base PV.
+#
+TST:PFN:CH0:ENABLE_RBV
+TST:PFN:CH0:VOLTAGE
+TST:PFN:CH0:CHARGE_INHIBIT
+TST:PFN:AUTO_FLASH_ON
+TST:PFN:FIRE_DELAY
+#
+# List of PVs to autosave.  Assume TST:PFN is the detector base PV,
+# CH1 is the channel number/name, and IOC:TST:PFN is the IOC base PV.
+#
+TST:PFN:CH1:ENABLE_RBV
+TST:PFN:CH1:VOLTAGE
+TST:PFN:CH1:CHARGE_INHIBIT
+TST:PFN:AUTO_FLASH_ON
+TST:PFN:FIRE_DELAY
+#
+# List of PVs to autosave.  Assume TST:PFN is the detector base PV,
+# CH2 is the channel number/name, and IOC:TST:PFN is the IOC base PV.
+#
+TST:PFN:CH2:ENABLE_RBV
+TST:PFN:CH2:VOLTAGE
+TST:PFN:CH2:CHARGE_INHIBIT
+TST:PFN:AUTO_FLASH_ON
+TST:PFN:FIRE_DELAY
+#
+# List of PVs to autosave.  Assume TST:PFN is the detector base PV,
+# CH3 is the channel number/name, and IOC:TST:PFN is the IOC base PV.
+#
+TST:PFN:CH3:ENABLE_RBV
+TST:PFN:CH3:VOLTAGE
+TST:PFN:CH3:CHARGE_INHIBIT
+TST:PFN:AUTO_FLASH_ON
+TST:PFN:FIRE_DELAY
+#
+# List of PVs to autosave.  Assume TST:PFN is the detector base PV,
+# CH4 is the channel number/name, and IOC:TST:PFN is the IOC base PV.
+#
+TST:PFN:CH4:ENABLE_RBV
+TST:PFN:CH4:VOLTAGE
+TST:PFN:CH4:CHARGE_INHIBIT
+TST:PFN:AUTO_FLASH_ON
+TST:PFN:FIRE_DELAY
+#
+# List of PVs to autosave.  Assume TST:PFN is the detector base PV,
+# CH5 is the channel number/name, and IOC:TST:PFN is the IOC base PV.
+#
+TST:PFN:CH5:ENABLE_RBV
+TST:PFN:CH5:VOLTAGE
+TST:PFN:CH5:CHARGE_INHIBIT
+TST:PFN:AUTO_FLASH_ON
+TST:PFN:FIRE_DELAY
+#
+# List of PVs to autosave.  Assume TST:PFN is the detector base PV,
+# CH6 is the channel number/name, and IOC:TST:PFN is the IOC base PV.
+#
+TST:PFN:CH6:ENABLE_RBV
+TST:PFN:CH6:VOLTAGE
+TST:PFN:CH6:CHARGE_INHIBIT
+TST:PFN:AUTO_FLASH_ON
+TST:PFN:FIRE_DELAY
+#
+# List of PVs to autosave.  Assume TST:PFN is the detector base PV,
+# CH7 is the channel number/name, and IOC:TST:PFN is the IOC base PV.
+#
+TST:PFN:CH7:ENABLE_RBV
+TST:PFN:CH7:VOLTAGE
+TST:PFN:CH7:CHARGE_INHIBIT
+TST:PFN:AUTO_FLASH_ON
+TST:PFN:FIRE_DELAY
+#
+# List of PVs to autosave.  Assume TST:PFN is the detector base PV,
+# CH8 is the channel number/name, and IOC:TST:PFN is the IOC base PV.
+#
+TST:PFN:CH8:ENABLE_RBV
+TST:PFN:CH8:VOLTAGE
+TST:PFN:CH8:CHARGE_INHIBIT
+TST:PFN:AUTO_FLASH_ON
+TST:PFN:FIRE_DELAY

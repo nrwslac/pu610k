@@ -1,3 +1,17 @@
+record(calcout, "$(BASE):CHILLER_INTERLOCK") {
+    field(DESC, "LPL glass rod chiller protection")
+    field(INPA, "$(CHILL):1 CPP NMS")
+    field(INPB, "$(CHILL):2 CPP NMS")
+    field(INPC, "$(CHILL):3 CPP NMS")
+    field(OOPT, "When Zero")
+    field(DOPT, "Use CALC")
+    field(SDIS, "$(BASE):MODE_RBV NMS")
+    field(OUT,  "$(BASE):MODE PP")
+    field(DISV, "0")
+    field(CALC, "A&&B&&C")
+    field(SCAN, "10 second")
+}
+
 record(longout, "$(BASE):MODE") {
     field(DESC, "PU610K Operating Mode")
     field(DRVL, "0")
